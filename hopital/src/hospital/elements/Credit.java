@@ -4,12 +4,11 @@ import hospital.map.Block;
 
 public class Credit {
 	private int value ;
-	private Block possision;
 	
-	public Credit (Block possison ,int value){
-		this.setPossision(possison);
-		this.setValue(value);
+	public Credit (int value){
+		this.value = value;
 	}
+
 
 	public int getValue() {
 		return value;
@@ -19,12 +18,12 @@ public class Credit {
 		this.value = value;
 	}
 
-	public Block getPossision() {
-		return possision;
+	public void incCredit(int price){
+		value = value + price ; 
+	}
+	public void dicCredit(int price){
+		value = value - price ; 
 	}
 
-	public void setPossision(Block possision) {
-		this.possision = possision;
-	}
 	
 }

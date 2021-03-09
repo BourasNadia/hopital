@@ -1,11 +1,5 @@
 package hospital.map;
 
-/**
- * Copyright SEDAMOP - Software Engineering
- * 
- * @author tianxiao.liu@cyu.fr
- *
- */
 public class Map {
 	private Block[][] blocks;
 

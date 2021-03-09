@@ -1,6 +1,7 @@
 package hospital;
 import java.util.List;
 
+import config.GameConfiguration;
 import hospital.map.Map;
 import hospital.elements.Cardiology;
 import hospital.elements.Credit;
@@ -20,7 +21,7 @@ public class Hospital {
 
 	private Map map;
 	private List<Department> departements;
-	private Credit credit;
+	private Credit credit = new Credit (GameConfiguration.INIT_CREDIT);
 	private Timer time;
 	private Cardiology cardiology;
 	private Reception reception;
@@ -31,9 +32,10 @@ public class Hospital {
 	public List<Department> getDepartements() {
 		return departements;
 	}
-	public Hospital(Map map,Timer time){
+	public Hospital(Map map,Timer time/*Credit credit*/){
 		this.map = map;
 		this.time = time;
+		/*this.credit = credit;*/
 	}
 	public Cardiology getCardiology(){
 		return cardiology;

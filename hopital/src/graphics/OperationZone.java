@@ -45,7 +45,7 @@ public class OperationZone extends JPanel {
 		instance.add(btnaddDepartments);
 		btnaddDepartments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addNewDepartemnt = new AddNewDepartemnt(topFrame,"Add a new Departement for your hospital",true);
+				addNewDepartemnt = new AddNewDepartemnt(topFrame,"Add a new Departement for your hospital",true, hospital);
 				addNewDepartemnt.addDepartemnt();
 			}
 		});

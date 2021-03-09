@@ -20,6 +20,15 @@ public class GameConfiguration {
 	public static final int COLUMN_COUNT = WINDOW_WIDTH / BLOCK_SIZE;
 	
 	public static final int GAME_SPEED = 1000;
-	public static final int INIT_CREDIT = 20000;
-
+	public static final int INIT_CREDIT = 600;
+	
+	
+	public static final int DEP_PRICE_SRGERY = 2010;
+	public static final int DEP_PRICE_CARDIOLOGY= 150;
+	public static final int DEP_PRICE_EMERGENCY = 1530;
+	public static final int DEP_PRICE_GENERALMEDECINE = 540;
+	public static final int DEP_PRICE_NEUROLOGY = 150;
+	public static final int DEP_PRICE_PEDIATRICS = 240;
+	public static final int DEP_PRICE_RADIOLOGY = 420;
+	
 }
