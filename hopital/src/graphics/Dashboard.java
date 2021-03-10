@@ -6,8 +6,13 @@ import java.awt.Graphics;
 
 
 
+
+import java.awt.List;
+import java.util.ArrayList;
+
 import hospital.Hospital;
 import hospital.elements.Cardiology;
+import hospital.elements.Department;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
@@ -34,19 +39,42 @@ public class Dashboard extends JPanel {
 	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-
-		element.paint(map, g);
-
 		Neurology neurology = hospital.getNeurology();
-		element.paint(neurology, g);
-		
 		GeneralMedcine generalMedcine= hospital.getGeneralMedcine();
-		element.paint(generalMedcine, g);
-		
 		Pediatrics pediatrics = hospital.getPediatrics();
-		element.paint(pediatrics, g);
-		
 		Reception reception = hospital.getReception();
+		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
+		
+		if(InformationZone.mapEvent == 1){
+			element.paint(map, g);
+		}
+		for (int i = 0; i < departements.size(); i++) {
+			//System.out.println(departements.get(i).toString());
+			if(departements.get(i).equals(pediatrics)){
+				element.paint(pediatrics, g);
+			}
+			if(departements.get(i).equals(neurology)){
+				element.paint(neurology, g);
+			}
+			if(departements.get(i).equals(generalMedcine)){
+				element.paint(generalMedcine, g);
+			}
+			
+		}
+		
+
+		
+
+		
+	//	element.paint(neurology, g);
+		
+		
+	//	element.paint(generalMedcine, g);
+		
+		
+	//	element.paint(pediatrics, g);
+		
+		
 		element.paint(reception,g);
 
 		

@@ -6,7 +6,7 @@ import hospital.staff.Doctor;
 import hospital.staff.NursingTeam;
 import hospital.map.Block;
 
-public abstract class Department {
+public class Department {
 	private Block position;
 	private int level;
 	private int prise;

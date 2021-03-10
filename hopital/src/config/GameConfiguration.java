@@ -31,4 +31,21 @@ public class GameConfiguration {
 	public static final int DEP_PRICE_PEDIATRICS = 240;
 	public static final int DEP_PRICE_RADIOLOGY = 420;
 	
+	
+	public static final int CONSULTATION_PRICE_SRGERY = 135;
+	public static final int CONSULTATION_PRICE_CARDIOLOGY= 2;
+	public static final int CONSULTATION_PRICE_EMERGENCY = 6;
+	public static final int CONSULTATION_PRICE_GENERALMEDECINE = 1;
+	public static final int CONSULTATION_PRICE_NEUROLOGY = 2;
+	public static final int CONSULTATION_PRICE_PEDIATRICS = 45;
+	public static final int CONSULTATION_PRICE_RADIOLOGY = 3;
+	
+
+	public static final int NUMBER_PATIENTS_SRGERY = 5;
+	public static final int NUMBER_PATIENTS_CARDIOLOGY = 25;
+	public static final int NUMBER_PATIENTS_EMERGENCY = 85;
+	public static final int NUMBER_PATIENTS_GENERALMEDECINE = 200;
+	public static final int NUMBER_PATIENTS_NEUROLOGY = 20;
+	public static final int NUMBER_PATIENTS_PEDIATRICS = 60;
+	public static final int NUMBER_PATIENTS_RADIOLOGY = 45;
 }

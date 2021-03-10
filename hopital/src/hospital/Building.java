@@ -23,7 +23,7 @@ public class Building {
 	private static void intializeReception(Map map, Hospital hospital) {
 		Block block = map.getBlock((GameConfiguration.LINE_COUNT-14)/2,(GameConfiguration.COLUMN_COUNT-10)/2);
 		Reception reception	= new Reception(block);
-		
 		hospital.set(reception);
 	}
+	
 }

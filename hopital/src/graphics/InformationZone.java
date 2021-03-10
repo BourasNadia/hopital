@@ -10,9 +10,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import config.GameConfiguration;
 
@@ -26,6 +30,7 @@ public class InformationZone extends JPanel implements Runnable{
 	private JLabel hourLabel = new JLabel(" Hour: 00 ");
 	private JLabel minuteLabel = new JLabel("Minute: 00");
 	private Font font = new Font(Font.MONOSPACED, Font.ITALIC,25);
+	public static int mapEvent = 0;
 	/**
 	 * 
 	 */
@@ -42,6 +47,7 @@ public class InformationZone extends JPanel implements Runnable{
 		Credit credit = hospital.getCredit();
 		element.paint(credit, g);
 		
+		
 	}
 	public void Information(){
 		updateValues();
@@ -55,6 +61,19 @@ public class InformationZone extends JPanel implements Runnable{
 		minuteLabel.setForeground(Color.white);
 		instance.add(hourLabel,BorderLayout.WEST);
 		instance.add(minuteLabel,BorderLayout.CENTER);
+		Button btnmap = new Button("MAP");
+		Dimension d = new Dimension(30,60);
+		btnmap.setSize(d);
+		btnmap.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				mapEvent = 1 ; 
+			}
+		});
+		instance.add(btnmap,BorderLayout.EAST);
+		
 		instance.setVisible(true);
 	}
 	
@@ -65,7 +84,9 @@ public class InformationZone extends JPanel implements Runnable{
 		CyclicCounter minute = hospital.getTime().getMm();
 		minuteLabel.setText(" Minute:"+minute.toString() + " ");
 	}
-
+	public int getmapEvent(){
+		return mapEvent;
+	}
 	@Override
 	public void run() {
 		while (true) {
@@ -73,7 +94,7 @@ public class InformationZone extends JPanel implements Runnable{
 				Thread.sleep(0);
 			} catch (InterruptedException e) {
 				System.out.println(e.getMessage());
-			}	
+			}
 			updateValues();
 		}
 	}

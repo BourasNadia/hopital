@@ -1,4 +1,5 @@
 package hospital;
+import java.util.ArrayList;
 import java.util.List;
 
 import config.GameConfiguration;
@@ -6,9 +7,11 @@ import hospital.map.Map;
 import hospital.elements.Cardiology;
 import hospital.elements.Credit;
 import hospital.elements.Department;
+import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
+import hospital.elements.Radiology;
 import hospital.elements.Reception;
 import hospital.elements.Surgery;
 import hospital.timer.Timer;
@@ -20,7 +23,7 @@ public class Hospital {
 	
 
 	private Map map;
-	private List<Department> departements;
+	private List<Department> departements = new ArrayList<Department>();
 	private Credit credit = new Credit (GameConfiguration.INIT_CREDIT);
 	private Timer time;
 	private Cardiology cardiology;
@@ -29,6 +32,8 @@ public class Hospital {
 	private Pediatrics pediatrics;
 	private Surgery surgery;
 	private Neurology neurology;
+	private Radiology radiology;
+	private Emergency emergency;
 	public List<Department> getDepartements() {
 		return departements;
 	}
@@ -43,7 +48,28 @@ public class Hospital {
 	public Reception getReception(){
 		return reception;
 	}
-	/**
+	public void addDep(Cardiology dep){
+		departements.add(dep);
+	}
+	public void addDep(GeneralMedcine dep){
+		departements.add(dep);
+	}
+	public void addDep(Pediatrics dep){
+		departements.add(dep);
+	}
+	public void addDep(Surgery dep){
+		departements.add(dep);
+	}
+	public void addDep(Neurology dep){
+		departements.add(dep);
+	}
+	public void addDep(Radiology dep) {
+		departements.add(dep);
+	}
+	public void addDep(Emergency dep) {
+		departements.add(dep);
+	}
+		/**
 	 * @return the generalMedcine
 	 */
 	public GeneralMedcine getGeneralMedcine() {
@@ -71,6 +97,12 @@ public class Hospital {
 	public void setDepartements(List<Department> departements) {
 		this.departements = departements;
 	}
+	public void set(Emergency emergency) {
+		this.emergency = emergency;
+	}
+	public void set(Radiology radiology) {
+		this.radiology = radiology;
+	}
 	public void set(GeneralMedcine generalMedcine) {
 		this.generalMedcine = generalMedcine;
 	}
@@ -85,6 +117,9 @@ public class Hospital {
 	}
 	public void set(Reception reception) {
 		this.reception = reception;
+	}
+	public void set(Cardiology cardiology) {
+		this.cardiology = cardiology;
 	}
 	
 	public Credit getCredit() {
@@ -108,5 +143,9 @@ public class Hospital {
 		return "hospital [departements=" + departements + ", credit=" + credit
 				+ ", time=" + time + "]";
 	}
+	
+
+	
+	
 	
 }

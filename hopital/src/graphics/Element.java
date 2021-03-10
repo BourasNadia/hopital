@@ -1,6 +1,7 @@
 package graphics;
 
 import hospital.elements.Credit;
+import hospital.elements.Department;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
@@ -20,7 +21,9 @@ import config.GameConfiguration;
 
 
 public class Element {
+	private Pediatrics pediatrics = null;
 	private BufferedImage img ;
+	
 	public void paint(Map map, Graphics graphics) {
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 		Block[][] blocks = map.getBlocks();
@@ -103,6 +106,12 @@ public class Element {
 		}
 		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*22,blockSize*15, Color.LIGHT_GRAY, null);
 	}
+
+	public void paint(Department department, Graphics g) {
+		
+	}
+
+	
 
 	
 }

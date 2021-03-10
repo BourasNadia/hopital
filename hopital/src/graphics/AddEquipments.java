@@ -31,8 +31,8 @@ public class AddEquipments extends JDialog{
 		JLabel label = new JLabel("Select a Departemet:");
 		label.setFont(font);
 		instance.add(label);
-		String[] choices = { "Departemet 1", "Departemet 2", "Departemet 3", "Departemet 4",
-                 "Departemet 5", "Departemet 6" };
+		String[] choices = {"Cardiology", "Emergency", "General medicine", "Neurology",
+                "Pediatrics", "Radiology","Surgery" };
 		JComboBox<String> menuDepartement = new JComboBox<String>(choices);
 		menuDepartement.setFont(font);
 		instance.add(menuDepartement);
@@ -42,8 +42,7 @@ public class AddEquipments extends JDialog{
 		JLabel labelUpdate = new JLabel("Update the departement:");
 		labelUpdate.setFont(font);
 		instance.add(labelUpdate);
-		String[] choices1 = { "CHOICE 1", "CHOICE 2", "CHOICE 3", "CHOICE 4",
-                "CHOICE 5", "CHOICE 6" };
+		String[] choices1 = { "Level 1", "Level 2", "Level 3" };
 		JComboBox<String>menuTypeStaff = new JComboBox<String>(choices1);
 		menuDepartement.setFont(font);
 		menuTypeStaff.setFont(font);

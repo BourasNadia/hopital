@@ -19,7 +19,7 @@ import javax.swing.JMenuItem;
 
 
 public class AddStaff extends JDialog{
-	private final static Dimension SizeDepartemntShop = new Dimension(430,300);
+	private final static Dimension SizeDepartemntShop = new Dimension(270,540);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,17);
 	/**
 	 * 
@@ -36,11 +36,11 @@ public class AddStaff extends JDialog{
 		instance.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER,30	,30));
 		instance.setPreferredSize(SizeDepartemntShop);
 		
-		JLabel label = new JLabel("Select a Departemet:");
+		JLabel label = new JLabel("Select a Department:");
 		label.setFont(font);
 		instance.add(label);
-		String[] choices = { "Departemet 1", "Departemet 2", "Departemet 3", "Departemet 4",
-                 "Departemet 5", "Departemet 6" };
+		String[] choices = { "Cardiology", "Emergency", "General medicine", "Neurology",
+                 "Pediatrics", "Radiology","Surgery" };
 		JComboBox<String> menuDepartement = new JComboBox<String>(choices);
 		menuDepartement.setFont(font);
 		instance.add(menuDepartement);
@@ -50,8 +50,7 @@ public class AddStaff extends JDialog{
 		JLabel labelStaffType = new JLabel("Select a type of Staff:");
 		labelStaffType.setFont(font);
 		instance.add(labelStaffType);
-		String[] choices1 = { "CHOICE 1", "CHOICE 2", "CHOICE 3", "CHOICE 4",
-                "CHOICE 5", "CHOICE 6" };
+		String[] choices1 = { "Doctor", "Nursing Team" };
 		JComboBox<String>menuTypeStaff = new JComboBox<String>(choices1);
 		menuDepartement.setFont(font);
 		menuTypeStaff.setFont(font);
@@ -63,7 +62,7 @@ public class AddStaff extends JDialog{
 		JLabel labelStaff = new JLabel("Available Staff:");
 		labelStaff.setFont(font);
 		instance.add(labelStaff);
-		String[] choices2 = { "CHOICE 1", "CHOICE 2", "CHOICE 3" };
+		String[] choices2 = { "Grade 1", "Grade 2", "Grade 3" };
 		JComboBox<String>menuStaff = new JComboBox<String>(choices2);
 		menuStaff.setFont(font);
 		instance.add(menuStaff);
