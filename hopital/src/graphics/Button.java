@@ -23,9 +23,9 @@ public class Button extends JButton {
 	}
 	public void paintComponent(Graphics g) {
 	     if (getModel().isArmed()) {
-	           g.setColor(Color.lightGray);
+	           g.setColor(new Color(230,230,250));
 	     } else {
-	          g.setColor(getBackground());
+	          g.setColor(new Color(230,176,170));
 	     }
 	     g.fillOval(0, 0, getSize().width-1, getSize().height-1);
 	     super.paintComponent(g);
@@ -33,7 +33,7 @@ public class Button extends JButton {
 	
 	public void paintBorder(Graphics g) {
 	     g.setColor(getForeground());
-	     g.drawOval(0, 0, getSize().width-1, getSize().height-1);
+	     g.drawOval(0, 0, getSize().width-2, getSize().height-2);
 	}
 	Shape shape;
 	public boolean contains(int x, int y) {

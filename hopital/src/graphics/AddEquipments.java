@@ -1,29 +1,38 @@
 package graphics;
 
+import hospital.Hospital;
+import hospital.elements.Department;
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class AddEquipments extends JDialog{
 	private final static Dimension SizeDepartemntShop = new Dimension(430,300);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,17);
+	private Hospital hospital;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	
-	public AddEquipments(JFrame topFrame, String string,Boolean b) {
+	public AddEquipments(JFrame topFrame, String string,Boolean b,Hospital hospital) {
 		super(topFrame,string,b);
+		this.hospital = hospital;
 	}
 
 	public void addequipments(){
+		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
 		AddEquipments instance=this;
 		instance.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER,30	,30));
 		instance.setPreferredSize(SizeDepartemntShop);
@@ -31,9 +40,30 @@ public class AddEquipments extends JDialog{
 		JLabel label = new JLabel("Select a Departemet:");
 		label.setFont(font);
 		instance.add(label);
-		String[] choices = {"Cardiology", "Emergency", "General medicine", "Neurology",
-                "Pediatrics", "Radiology","Surgery" };
-		JComboBox<String> menuDepartement = new JComboBox<String>(choices);
+		
+
+		List<String> choicesArray =new ArrayList<String>();
+		
+
+		for (int i = 0; i < departements.size(); i++) {
+			//System.out.println(departements.get(i).toString());
+			if(departements.get(i).equals(hospital.getNeurology())){
+				choicesArray.add("Neurology");
+			}
+			if(departements.get(i).equals(hospital.getPediatrics())){
+				choicesArray.add("Pediatrics");
+			}
+			
+		}
+		
+		
+		
+		
+		String[] choices =  choicesArray.toArray(new String[0]);
+		
+		JComboBox<String> menuDepartement = new JComboBox<String>( choices);
+		
+		
 		menuDepartement.setFont(font);
 		instance.add(menuDepartement);
 		
@@ -58,6 +88,11 @@ public class AddEquipments extends JDialog{
 		btnCancel.setFont(font);
 		instance.add(btnCancel);
 		pack();
-		instance.setVisible(true);
+		if(choicesArray.isEmpty()){
+			JOptionPane.showMessageDialog(instance,"you shoud have a depertement to add Equipments in","Warning", JOptionPane.WARNING_MESSAGE);
+			instance.setVisible(false);
+		}else{
+			instance.setVisible(true);
+		}
 	}
 }

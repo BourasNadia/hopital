@@ -7,11 +7,11 @@ import java.awt.Graphics;
 
 
 
-import java.awt.List;
+
 import java.util.ArrayList;
 
 import hospital.Hospital;
-import hospital.elements.Cardiology;
+
 import hospital.elements.Department;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Neurology;
@@ -19,7 +19,10 @@ import hospital.elements.Pediatrics;
 import hospital.elements.Reception;
 import hospital.map.Map;
 
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+
+import config.GameConfiguration;
 
 
 public class Dashboard extends JPanel {
@@ -30,6 +33,7 @@ public class Dashboard extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Map map;
 	private Hospital hospital;
+	
 	private Element element = new Element();
 	
 	public Dashboard(Map map,Hospital hospital){
@@ -52,27 +56,49 @@ public class Dashboard extends JPanel {
 			//System.out.println(departements.get(i).toString());
 			if(departements.get(i).equals(pediatrics)){
 				element.paint(pediatrics, g);
+				if(hospital.getTime().getHh().getValue()==17 || hospital.getTime().getMm().getValue()==30){
+						hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+				}
 			}
 			if(departements.get(i).equals(neurology)){
 				element.paint(neurology, g);
+				if(hospital.getTime().getHh().getValue()==17 || hospital.getTime().getMm().getValue()==30){
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY);
+				}
+				
 			}
 			if(departements.get(i).equals(generalMedcine)){
 				element.paint(generalMedcine, g);
+				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE);
+			}
+			}
+			if(departements.get(i).equals(generalMedcine)){
+				element.paint(generalMedcine, g);
+				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+			}
+			}
+			if(departements.get(i).equals(generalMedcine)){
+				element.paint(generalMedcine, g);
+				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+			}
+			}
+			if(departements.get(i).equals(generalMedcine)){
+				element.paint(generalMedcine, g);
+				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+			}
 			}
 			
 		}
+		Dashboard instance = this;
+		instance.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 
 		
 
-		
-	//	element.paint(neurology, g);
-		
-		
-	//	element.paint(generalMedcine, g);
-		
-		
-	//	element.paint(pediatrics, g);
 		
 		
 		element.paint(reception,g);

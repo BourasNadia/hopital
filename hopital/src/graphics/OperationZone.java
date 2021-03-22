@@ -1,12 +1,14 @@
 package graphics;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
 import hospital.Hospital;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -21,7 +23,10 @@ import java.awt.event.ActionEvent;
 public class OperationZone extends JPanel {
 	private Hospital hospital;
 	private final static Dimension SizeOperationZone = new Dimension(GameConfiguration.OPERATIONZONE_WIDTH, GameConfiguration.OPERATIONZONE_HEIGHT);
-	private Font font1 = new Font(Font.MONOSPACED, Font.BOLD,17);
+	private Font font1 = new Font(Font.MONOSPACED, Font.BOLD,16);
+	private Font font = new Font(Font.MONOSPACED, Font.BOLD,20);
+	private Font font3 = new Font(Font.MONOSPACED, Font.BOLD,19);
+	
 	private Font font2 = new Font(Font.MONOSPACED, Font.BOLD,25);
 	private	AddNewDepartemnt addNewDepartemnt;
 	private	AddStaff addStaff;
@@ -33,29 +38,34 @@ public class OperationZone extends JPanel {
 	public OperationZone(Hospital hospital){
 		this.hospital=hospital;
 	}
-	public void operation(){
+	public void operation(Main main){
 		OperationZone instance = this;
-		JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(instance);
+		
+		
+		
 		instance.setPreferredSize(SizeOperationZone);
 		instance.setBackground(Color.gray);
 		instance.setLayout(new GridLayout(5,1) );
+		instance.setBorder(BorderFactory.createLoweredBevelBorder());
 		
 		Button btnaddDepartments = new Button("Add Departements");
 		btnaddDepartments.setFont(font1);
 		instance.add(btnaddDepartments);
+		
 		btnaddDepartments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addNewDepartemnt = new AddNewDepartemnt(topFrame,"Add a new Departement for your hospital",true, hospital);
+				addNewDepartemnt = new AddNewDepartemnt(main,"Add a new Departement for your hospital",true, hospital);
+				
 				addNewDepartemnt.addDepartemnt();
 			}
 		});
 		
 		Button btnaddStaff = new Button("Add Staff");
-		btnaddStaff.setFont(font1);
+		btnaddStaff.setFont(font);
 		instance.add(btnaddStaff);
 		btnaddStaff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addStaff = new AddStaff(topFrame,"Staffing Shop",true);
+				addStaff = new AddStaff(main,"Staffing Shop",true,hospital);
 				addStaff.addstaff();
 			}
 		});
@@ -63,11 +73,11 @@ public class OperationZone extends JPanel {
 		
 		
 		Button btnaddEquipments= new Button("Add Equipments");
-		btnaddEquipments.setFont(font1);
+		btnaddEquipments.setFont(font3);
 		instance.add(btnaddEquipments);
 		btnaddEquipments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				addEquipments = new AddEquipments(topFrame,"Equipment Shop",true);
+				addEquipments = new AddEquipments(main,"Equipment Shop",true,hospital);
 				addEquipments.addequipments();
 			}
 		});
@@ -81,4 +91,6 @@ public class OperationZone extends JPanel {
 		instance.add(btnlogout);
 		
 	}
+	
+	
 }

@@ -129,6 +129,10 @@ public class Hospital {
 	public void setCredit(Credit credit) {
 		this.credit = credit;
 	}
+	public void setCredit(int value) {
+		Credit credit = new Credit(value);
+		this.credit = credit;
+	}
 	
 	public Timer getTime() {
 		return time;

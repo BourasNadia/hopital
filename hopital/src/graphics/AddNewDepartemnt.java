@@ -3,6 +3,7 @@ package graphics;
 import hospital.Hospital;
 import hospital.elements.Cardiology;
 import hospital.elements.Credit;
+import hospital.elements.Department;
 import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Neurology;
@@ -16,6 +17,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -33,6 +35,9 @@ public class AddNewDepartemnt extends JDialog{
 	private final static Dimension SizeDepartemntShop = new Dimension(GameConfiguration.DEPPARTEMENT_SHOP_WIDTH, GameConfiguration.DEPPARTEMENT_SHOP_HEIGHT);
 	private final static Dimension SizeFooteur = new Dimension(400, 100);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,17);
+
+	
+	
 	/**
 	 * 
 	 */
@@ -49,9 +54,13 @@ public class AddNewDepartemnt extends JDialog{
 		instance.getContentPane().setLayout(new GridLayout(5,2));
 		instance.setPreferredSize(SizeDepartemntShop);
 
+		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
 		
 		
-		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
 		
 		
 		
@@ -83,6 +92,10 @@ public class AddNewDepartemnt extends JDialog{
 		});
 		
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/	
 		
 		
 		Button btnEmergency = new Button("Emergency");
@@ -120,6 +133,10 @@ public class AddNewDepartemnt extends JDialog{
 		
 		
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
 		
 		Button btnRadiology = new Button("Radiology");
 		btnRadiology.setFont(font);
@@ -152,8 +169,10 @@ public class AddNewDepartemnt extends JDialog{
 		});
 		
 		
-		
-		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
 		Button btnNeurology= new Button("Neurology");
 		btnNeurology.setFont(font);
 		instance.add(btnNeurology);
@@ -165,25 +184,38 @@ public class AddNewDepartemnt extends JDialog{
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_NEUROLOGY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nNEUROLOGY Price : "+GameConfiguration.DEP_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 				}else{
-					int rep = JOptionPane.showConfirmDialog(instance, "the price of the NEUROLOGY department is : "
-							+GameConfiguration.DEP_PRICE_NEUROLOGY+"\n"
-							+ "his sizes : 10x13 \n"
-							+ "number of patients per day : "
-							+GameConfiguration.NUMBER_PATIENTS_NEUROLOGY+"\n"
-							+ "consultation price : "
-							+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY +"\n"
-							+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-					if (rep==JOptionPane.YES_OPTION){
-					credit.dicCredit(GameConfiguration.DEP_PRICE_NEUROLOGY);
-					hospital.setCredit(credit);
-					Neurology neurology = new Neurology(new Block(5,5)) ;
-					hospital.set(neurology);
-					hospital.addDep(neurology);
+					int tmp =0;
+					for (int i = 0; i < departements.size(); i++) {
+						if(departements.get(i).equals(hospital.getNeurology())){
+							JOptionPane.showMessageDialog(instance,"you alredy have a neurology departements","Warning", JOptionPane.WARNING_MESSAGE);
+							tmp=1;
+						}
+					}
+					if(tmp==0){					
+						int rep = JOptionPane.showConfirmDialog(instance, "the price of the NEUROLOGY department is : "
+								+GameConfiguration.DEP_PRICE_NEUROLOGY+"\n"
+								+ "his sizes : 10x13 \n"
+								+ "number of patients per day : "
+								+GameConfiguration.NUMBER_PATIENTS_NEUROLOGY+"\n"
+								+ "consultation price : "
+								+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY +"\n"
+								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+						if (rep==JOptionPane.YES_OPTION){
+							credit.dicCredit(GameConfiguration.DEP_PRICE_NEUROLOGY);
+							hospital.setCredit(credit);
+							Neurology neurology = new Neurology(new Block(5,5)) ;
+							hospital.set(neurology);
+							hospital.addDep(neurology);
+						}
 					}
 				}
 			}
 		});
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
 		
 		
 		
@@ -207,11 +239,13 @@ public class AddNewDepartemnt extends JDialog{
 							+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE +"\n"
 							+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			if (rep==JOptionPane.YES_OPTION){		
-					credit.dicCredit(GameConfiguration.DEP_PRICE_GENERALMEDECINE);
-					hospital.setCredit(credit);
-					GeneralMedcine generalMedcine = new GeneralMedcine(new Block(5,5)) ;
-					hospital.set(generalMedcine);
-					hospital.addDep(generalMedcine);
+					if(hospital.getGeneralMedcine().equals(null)){
+						credit.dicCredit(GameConfiguration.DEP_PRICE_GENERALMEDECINE);
+						hospital.setCredit(credit);
+						GeneralMedcine generalMedcine = new GeneralMedcine(new Block(5,5)) ;
+						hospital.set(generalMedcine);
+						hospital.addDep(generalMedcine);
+					}
 					
 				}	
 			}
@@ -219,6 +253,10 @@ public class AddNewDepartemnt extends JDialog{
 		});
 		
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/	
 		
 		Button btnPediatrics = new Button("Pediatrics");
 		btnPediatrics.setFont(font);
@@ -236,7 +274,7 @@ public class AddNewDepartemnt extends JDialog{
 							+GameConfiguration.DEP_PRICE_PEDIATRICS
 							+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 				}else{
-			int rep=		JOptionPane.showConfirmDialog(instance, "the price of the PEDIATRICS department is : "
+						int rep=JOptionPane.showConfirmDialog(instance, "the price of the PEDIATRICS department is : "
 							+GameConfiguration.DEP_PRICE_PEDIATRICS+"\n"
 							+ "his sizes : 13x10 \n"
 							+ "number of patients per day : "
@@ -256,6 +294,10 @@ public class AddNewDepartemnt extends JDialog{
 		});
 		
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
 		
 		Button btnCardilogy = new Button("Cardiology");
 		btnCardilogy .setFont(font);
@@ -286,6 +328,10 @@ public class AddNewDepartemnt extends JDialog{
 			}
 		});
 		
+/*-----------------------------------------------------------------------------------------------*/		
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/		
 		instance.add(new JLabel(""));
 		instance.add(new JLabel(""));
 		
@@ -298,11 +344,27 @@ public class AddNewDepartemnt extends JDialog{
 		JButton btnFinish = new JButton("Finish");
 
 		btnFinish.setBounds(0, 60, 85, 40);
+		btnFinish.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				instance.setVisible(false);
+				
+			}
+		});
 		footer.add(btnFinish,BorderLayout.EAST);
 		
 
 		JButton btnCancel= new JButton("Cancel");
 		btnCancel.setBounds(95, 60,85,40);
+		btnCancel.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				instance.setVisible(false);
+				
+			}
+		});
 		footer.add(btnCancel,BorderLayout.WEST);
 		
 		instance.add(footer);

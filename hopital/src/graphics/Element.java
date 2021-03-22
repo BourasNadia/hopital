@@ -57,10 +57,10 @@ public class Element {
 		int y = 40;
 		int x = 650;
 		graphics.setColor(Color.WHITE);
-		graphics.fillRoundRect(x, y, 300, 20, 10, 10);
+		graphics.fillRoundRect(x, y, 300, 30, 10, 10);
 		graphics.setColor(Color.green);
 		//int width = *(50/600);
-		graphics.fillRoundRect(x, y, credit.getValue()/10, 20, 10, 10);
+		graphics.fillRoundRect(x, y, credit.getValue()/10, 30, 10, 10);
 	}
 	public void paint(Timer timer,Graphics graphics){
 		int y = 35;
