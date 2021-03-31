@@ -203,7 +203,38 @@ public class AddNewDepartemnt extends JDialog{
 						if (rep==JOptionPane.YES_OPTION){
 							credit.dicCredit(GameConfiguration.DEP_PRICE_NEUROLOGY);
 							hospital.setCredit(credit);
-							Neurology neurology = new Neurology(new Block(5,5)) ;
+							String positionLine = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							String positionColm = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							
+							int line = 5;
+							try {
+								 line= Integer.parseInt(positionLine);
+							} catch (NumberFormatException e2) {
+								line=5;
+							}
+							int  Colm = 5;
+							try {
+								Colm = Integer.parseInt(positionColm);
+							} catch (NumberFormatException e2) {
+								 Colm = 5;
+							}
+							
+							if(line<0 || line>40){
+								line = 5;
+							}
+							
+							if (Colm<0||Colm>60){
+								Colm = 5;
+							}
+							
+						
+						
+							Neurology neurology = new Neurology(new Block(line,Colm)) ;
+							//};
+							neurology.setPrise(GameConfiguration.DEP_PRICE_NEUROLOGY);
+							neurology.setLevel(1);
+							neurology.setNb_Patient(GameConfiguration.NUMBER_PATIENTS_NEUROLOGY);
+	
 							hospital.set(neurology);
 							hospital.addDep(neurology);
 						}
@@ -285,9 +316,41 @@ public class AddNewDepartemnt extends JDialog{
 			if (rep==JOptionPane.YES_OPTION){		
 			credit.dicCredit(GameConfiguration.DEP_PRICE_PEDIATRICS);
 					hospital.setCredit(credit);
-					Pediatrics pediatrics = new Pediatrics(new Block(5,5)) ;
+					String positionLine = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+					String positionColm = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+					
+					int line = 5;
+					try {
+						 line= Integer.parseInt(positionLine);
+					} catch (NumberFormatException e2) {
+						line=5;
+					}
+					int  Colm = 5;
+					try {
+						Colm = Integer.parseInt(positionColm);
+					} catch (NumberFormatException e2) {
+						 Colm = 5;
+					}
+					
+					if(line<0 || line>40){
+						line = 5;
+					}
+					
+					if (Colm<0||Colm>60){
+						Colm = 5;
+					}
+					
+				
+				
+		
+					Pediatrics pediatrics = new Pediatrics(new Block(line,Colm)) ;
 					hospital.set(pediatrics);
 					hospital.addDep(pediatrics);
+					
+					pediatrics.setPrise(GameConfiguration.DEP_PRICE_PEDIATRICS);
+					pediatrics.setLevel(1);
+					pediatrics.setNb_Patient(GameConfiguration.NUMBER_PATIENTS_PEDIATRICS);
+					
 				}
 			}
 			}

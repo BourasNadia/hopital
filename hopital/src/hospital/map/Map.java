@@ -39,6 +39,10 @@ public class Map {
 		int line = block.getLine();
 		return line == 0;
 	}
+	public boolean istouch(Block block,Block element) {
+		int line = block.getLine();
+		return (line == element.getLine()+12)  ;
+	}
 
 	public boolean isOnBottom(Block block) {
 		int line = block.getLine();

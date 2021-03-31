@@ -4,8 +4,8 @@ import hospital.timer.CyclicCounter;
 
 public class Timer {
 
-	private CyclicCounter mm = new CyclicCounter(30, 59, 0);
-	private CyclicCounter hh = new CyclicCounter(8, 23, 0);
+	private CyclicCounter mm = new CyclicCounter(35, 39, 30);
+	private CyclicCounter hh = new CyclicCounter(17, 17, 17);
 	
 	public void inc() {
 		mm.inc();

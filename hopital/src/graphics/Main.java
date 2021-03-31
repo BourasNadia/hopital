@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import  java.awt.Image;
-
 import hospital.Building;
 import hospital.Hospital;
 import hospital.map.Map;
@@ -16,7 +15,6 @@ import hospital.timer.Timer;
 import javafx.geometry.Insets;
 
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 //import javax.swing.JTextField;
@@ -26,7 +24,6 @@ import javax.swing.JFrame;
 
 
 import javax.swing.border.Border;
-
 
 
 
@@ -73,7 +70,7 @@ public class Main extends JFrame implements Runnable{
 		
 		dashboard = new Dashboard(map, hospital);
 		informationZone = new InformationZone(hospital);
-		operationZone = new OperationZone(hospital);
+		operationZone = new OperationZone(hospital,this);
 
 	
 		informationZone.Information();
@@ -84,7 +81,7 @@ public class Main extends JFrame implements Runnable{
 
 		
 		
-		operationZone.operation(this);
+		operationZone.operation();
 		contentPane.add(operationZone,BorderLayout.EAST);
 		
 		
@@ -110,13 +107,14 @@ public class Main extends JFrame implements Runnable{
 			time.inc();
 			informationZone.repaint();	
 			dashboard.repaint();
+			//hospital.generateHommes();
+			hospital.nextRound();
 		}
 	}
 	public static void main(String[]args){
 		Main main= new Main("Hospital Game");
-		ImageIcon icon = new ImageIcon("src/config/icon.png");  
-		main.setIconImage(icon.getImage());  
-		main.setLayout(null);  
+		Image icon = Toolkit.getDefaultToolkit().getImage("./src/config/icon.png");  
+		main.setIconImage(icon);  
 		main.setVisible(true);
 		
 		Thread gameThread = new Thread(main);

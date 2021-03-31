@@ -3,6 +3,8 @@ package graphics;
 import hospital.elements.Credit;
 import hospital.elements.Department;
 import hospital.elements.GeneralMedcine;
+import hospital.elements.Homme;
+import hospital.elements.Money;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
 import hospital.elements.Reception;
@@ -19,7 +21,6 @@ import javax.imageio.ImageIO;
 
 import config.GameConfiguration;
 
-
 public class Element {
 	private Pediatrics pediatrics = null;
 	private BufferedImage img ;
@@ -32,7 +33,7 @@ public class Element {
 				Block block = blocks[lineIndex][columnIndex];
 
 				if ((lineIndex + columnIndex) % 2 == 0) {
-					graphics.setColor(Color.GRAY);
+					graphics.setColor(new Color(200, 200,200));
 					graphics.fillRect(block.getColumn() * blockSize, block.getLine() * blockSize, blockSize, blockSize);
 				}
 			}
@@ -42,15 +43,15 @@ public class Element {
 	public void paint(Reception reception,Graphics graphics) {
 		Block position = reception.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
-		int y = position.getLine()-2;
-		int x = position.getColumn();
+		int y = position.getLine();
+		int x = position.getColumn()+2;
 		try {
 			img = ImageIO.read(getClass().getResourceAsStream("/config/logo_hopital.png") );
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*14,blockSize*11, Color.LIGHT_GRAY, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*14,blockSize*11, null);
 	}
 	
 	public void paint(Credit credit,Graphics graphics){
@@ -62,6 +63,9 @@ public class Element {
 		//int width = *(50/600);
 		graphics.fillRoundRect(x, y, credit.getValue()/10, 30, 10, 10);
 	}
+	private static int getRandomNumber(int min, int max) {
+		return (int) (Math.random() * (max + 1 - min)) + min;
+	}
 	public void paint(Timer timer,Graphics graphics){
 		int y = 35;
 		int x = 3;
@@ -69,28 +73,76 @@ public class Element {
 		graphics.fillRoundRect(x, y, 300, 35, 10, 10);
 		
 	}
-	public void paint(Neurology neurology, Graphics graphics) {
+
+	
+	
+	
+	public void paint(Homme homme, Graphics graphics,Timer timer) {
+		Block position = homme.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
-		int y = 0;
-		int x = 0;
+		
+		int y = position.getLine();
+		int x = position.getColumn();
+		int rand =getRandomNumber(0,1);
+		
+		
+		
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/neurology.jpg") );
+			if(rand==0){
+				img = ImageIO.read(getClass().getResourceAsStream("/config/homme.png") );	
+			}else{
+				img = ImageIO.read(getClass().getResourceAsStream("/config/homme1.png") );
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, Color.LIGHT_GRAY, null);
+		
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*4,blockSize*3, null);
+		
+		//graphics.setColor(Color.RED);
+		
+	}
+	
+/*	public void paint(Money money, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = money.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/neurology.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
+	}
+	
+	*/
+	
+	public void paint(Neurology neurology, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = neurology.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/neurology.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
 	}
 	
 	public void paint(Pediatrics pediatrics, Graphics graphics) {
+		Block position = pediatrics.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
-		int y = 15;
-		int x = 0;
+		
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/Pediatry.jpg") );
+			img = ImageIO.read(getClass().getResourceAsStream("/config/Pediatry.png") );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, Color.LIGHT_GRAY, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
 	}
 
 	
@@ -104,7 +156,7 @@ public class Element {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*22,blockSize*15, Color.LIGHT_GRAY, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*22,blockSize*15, null);
 	}
 
 	public void paint(Department department, Graphics g) {

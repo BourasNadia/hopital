@@ -26,6 +26,7 @@ public class OperationZone extends JPanel {
 	private Font font1 = new Font(Font.MONOSPACED, Font.BOLD,16);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,20);
 	private Font font3 = new Font(Font.MONOSPACED, Font.BOLD,19);
+	private Main main;
 	
 	private Font font2 = new Font(Font.MONOSPACED, Font.BOLD,25);
 	private	AddNewDepartemnt addNewDepartemnt;
@@ -35,14 +36,17 @@ public class OperationZone extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public OperationZone(Hospital hospital){
+	public OperationZone(Hospital hospital,Main main){
 		this.hospital=hospital;
+		this.main = main;
 	}
-	public void operation(Main main){
+	
+	public void operation(){
+	
 		OperationZone instance = this;
+	
 		
-		
-		
+		System.out.println(main.toString());
 		instance.setPreferredSize(SizeOperationZone);
 		instance.setBackground(Color.gray);
 		instance.setLayout(new GridLayout(5,1) );

@@ -1,5 +1,8 @@
 package hospital;
 import java.util.ArrayList;
+
+import hospital.map.Block;
+
 import java.util.List;
 
 import config.GameConfiguration;
@@ -9,6 +12,9 @@ import hospital.elements.Credit;
 import hospital.elements.Department;
 import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
+import hospital.elements.Homme;
+import hospital.elements.Money;
+import hospital.elements.Money;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
 import hospital.elements.Radiology;
@@ -26,6 +32,8 @@ public class Hospital {
 	private List<Department> departements = new ArrayList<Department>();
 	private Credit credit = new Credit (GameConfiguration.INIT_CREDIT);
 	private Timer time;
+	private List<Homme> hommes= new ArrayList<Homme>();
+	//private List<Money> moneys= new ArrayList<Money>();
 	private Cardiology cardiology;
 	private Reception reception;
 	private GeneralMedcine generalMedcine;
@@ -47,6 +55,9 @@ public class Hospital {
 	}
 	public Reception getReception(){
 		return reception;
+	}
+	public void add(Homme homme) {
+		hommes.add(homme);
 	}
 	public void addDep(Cardiology dep){
 		departements.add(dep);
@@ -141,14 +152,65 @@ public class Hospital {
 	public void setTime(Timer time) {
 		this.time = time;
 	}
+
+	public void generateHommes() {
+		Block position =  new Block(39,31);
+		Homme homme = new Homme(position);
+		add(homme);
+
+	}
+	
+	public void nextRound() {
+		int t =getTime().getMm().getValue();
+		System.out.println(t%2);
+		
+		if (t%2 == 0 ){
+			generateHommes();
+		}
+		
+		moveHommes();
+	}
+
+	private void moveHommes() {
+		List<Homme> outOfBoundMissiles = new ArrayList<Homme>();
+
+		for (Homme homme : hommes) {
+			Block position = homme.getPosition();
+			Block elePosition = getReception().getPosition();
+
+			 if (!map.istouch(position,elePosition)) {
+				Block newPosition = map.getBlock(position.getLine() - 2, position.getColumn());
+				homme.setPosition(newPosition);
+			} else {
+				outOfBoundMissiles.add(homme);
+			}
+
+		}
+
+		for (Homme homme : outOfBoundMissiles) {
+			hommes.remove(homme);
+		}
+	}
+	public List<Homme> getHommes() {
+		return hommes;
+	}
 	
 	@Override
 	public String toString() {
 		return "hospital [departements=" + departements + ", credit=" + credit
+
 				+ ", time=" + time + "]";
 	}
+	/*public void add(Money money) {
+		moneys.add(money);
+		
+	}
+	public ArrayList<Money> getMoneys() {
+		
+		return (ArrayList<Money>) moneys;
+	}
 	
-
+*/
 	
 	
 	
