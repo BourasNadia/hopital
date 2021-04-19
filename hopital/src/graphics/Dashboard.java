@@ -11,6 +11,7 @@ import java.awt.Graphics;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 
 import hospital.Hospital;
@@ -62,12 +63,16 @@ public class Dashboard extends JPanel {
 		
 		
 		if(InformationZone.mapEvent == 1){
-			element.paint(map, g);
+			element.paint(map, g,hospital);
 		}
 		
 		if ( departements.size()>=1) {
-			for (Homme homme : hommes) {	
-				element.paint(homme, g,timer);
+			try{
+				for (Homme homme : hommes) {
+					element.paint(homme, g,timer);
+				}
+			}catch(ConcurrentModificationException e){
+				
 			}
 		}
 		
@@ -77,7 +82,7 @@ public class Dashboard extends JPanel {
 		
 		
 		for (int i = 0; i < departements.size(); i++) {
-			//System.out.println(departements.get(i).toString());
+			
 			if(departements.get(i).equals(pediatrics)){
 				element.paint(pediatrics, g);
 				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){

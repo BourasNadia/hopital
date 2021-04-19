@@ -6,7 +6,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 
+import hospital.Audio;
 import hospital.Hospital;
+import javafx.scene.media.AudioClip;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -19,6 +21,8 @@ import javax.swing.JButton;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class OperationZone extends JPanel {
 	private Hospital hospital;
@@ -30,8 +34,13 @@ public class OperationZone extends JPanel {
 	
 	private Font font2 = new Font(Font.MONOSPACED, Font.BOLD,25);
 	private	AddNewDepartemnt addNewDepartemnt;
+	private	Playground playground;
+	private Logout logout;
 	private	AddStaff addStaff;
 	private AddEquipments addEquipments;
+	//private AudioClip aC = new AudioClip( new File("./src/config/clic.mp3").toURI().toString());
+	private Audio audio = new Audio();
+	
 	/**
 	 * 
 	 */
@@ -46,7 +55,7 @@ public class OperationZone extends JPanel {
 		OperationZone instance = this;
 	
 		
-		System.out.println(main.toString());
+		//System.out.println(main.toString());
 		instance.setPreferredSize(SizeOperationZone);
 		instance.setBackground(Color.gray);
 		instance.setLayout(new GridLayout(5,1) );
@@ -58,6 +67,12 @@ public class OperationZone extends JPanel {
 		
 		btnaddDepartments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
+				
+				audio.getaCClic().play();
+				
+				
+				
 				addNewDepartemnt = new AddNewDepartemnt(main,"Add a new Departement for your hospital",true, hospital);
 				
 				addNewDepartemnt.addDepartemnt();
@@ -69,6 +84,7 @@ public class OperationZone extends JPanel {
 		instance.add(btnaddStaff);
 		btnaddStaff.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				addStaff = new AddStaff(main,"Staffing Shop",true,hospital);
 				addStaff.addstaff();
 			}
@@ -81,18 +97,42 @@ public class OperationZone extends JPanel {
 		instance.add(btnaddEquipments);
 		btnaddEquipments.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();				
+				playground = new Playground(main,"Playground",true,hospital);
+				playground.addequipments();
+			}
+		});
+		
+		Button btnPlayground= new Button("Playground");
+		btnPlayground.setFont(font);
+		instance.add(btnPlayground);
+		btnPlayground.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				addEquipments = new AddEquipments(main,"Equipment Shop",true,hospital);
 				addEquipments.addequipments();
 			}
 		});
 		
-		Button btnSave = new Button("Save");
-		btnSave.setFont(font2);
-		instance.add(btnSave);
+		
 		
 		Button btnlogout = new Button("Logout");
 		btnlogout.setFont(font2);
 		instance.add(btnlogout);
+		btnlogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				logout = new Logout(main,"Logout",true,hospital);
+				
+				audio.getaCClic().play(23);
+				try {
+					logout.logout();
+					
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		
 	}
 	

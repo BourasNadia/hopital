@@ -8,6 +8,7 @@ import hospital.map.Block;
 
 public class Department {
 	private Block position;
+	private String Name;
 	private int level;
 	private int prise;
 	private int nb_Patient ;
@@ -104,11 +105,23 @@ public class Department {
 	}
 
 
+	public Department(String position, String Name, String level) {
+		
+	}
+
 	public Block getPosition() {
 		return position;
 	}
 
 	public void setPosition(Block position) {
 		this.position = position;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
 	}
 }

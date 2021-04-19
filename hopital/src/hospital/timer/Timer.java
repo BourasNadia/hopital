@@ -3,10 +3,16 @@ package hospital.timer;
 import hospital.timer.CyclicCounter;
 
 public class Timer {
-
+	
 	private CyclicCounter mm = new CyclicCounter(35, 39, 30);
 	private CyclicCounter hh = new CyclicCounter(17, 17, 17);
 	
+	
+	
+	public Timer() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void inc() {
 		mm.inc();
 		if (mm.getValue() == 0) {
@@ -33,6 +39,13 @@ public class Timer {
 	public CyclicCounter getHh() {
 		return hh;
 	}
+	public void setMm(int value){
+		mm.setValue(value);	
+	}
+	public void setHh(int value){
+		hh.setValue(value);	
+	}
+	
 	
 	public String toString(){
 		return hh.toString() + " : "+ mm.toString() ; 

@@ -1,6 +1,7 @@
 package hospital;
 
 
+import hospital.elements.Credit;
 import hospital.elements.Reception;
 import hospital.map.Block;
 import hospital.map.Map;
@@ -11,6 +12,13 @@ import config.GameConfiguration;
 public class Building {
 	public static Map buildMap() {
 		return new Map(GameConfiguration.LINE_COUNT, GameConfiguration.COLUMN_COUNT);
+	}
+	public static Hospital buildInitMobile(Map map,int height,int width,Timer timer, int credit)  {
+		Hospital hospital = new Hospital( map, height, width,  timer, credit) ;
+		
+		intializeReception(map,hospital);
+		
+		return hospital;
 	}
 	public static Hospital buildInitMobile(Map map,Timer timer) {
 		Hospital hospital = new Hospital(map,timer);

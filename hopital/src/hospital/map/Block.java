@@ -1,5 +1,7 @@
 package hospital.map;
 
+import config.GameConfiguration;
+
 public class Block {
 	private int line;
 	private int column;
@@ -19,7 +21,7 @@ public class Block {
 
 	@Override
 	public String toString() {
-		return "Block [line=" + line + ", column=" + column + "]";
+		return "" + line + GameConfiguration.SEPARETOR+ column;
 	}
 
 }

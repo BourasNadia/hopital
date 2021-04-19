@@ -1,5 +1,6 @@
 package hospital.timer;
 
+
 public class Counter {
 	public int value ;
 	
@@ -9,7 +10,6 @@ public class Counter {
 	public int getValue() {
 		return value;
 	}
-
 	public void setValue(int value) {
 		this.value = value;
 	}

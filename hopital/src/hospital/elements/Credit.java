@@ -24,6 +24,9 @@ public class Credit {
 	public void dicCredit(int price){
 		value = value - price ; 
 	}
+	public String toString(){
+		return ""+value;
+	}
 
 	
 }

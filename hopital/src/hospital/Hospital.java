@@ -28,7 +28,35 @@ import hospital.timer.Timer;
 public class Hospital {
 	
 
+	/**
+	 * @return the width
+	 */
+	public int getWidth() {
+		return width;
+	}
+	/**
+	 * @param width the width to set
+	 */
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	/**
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height;
+	}
+	/**
+	 * @param height the height to set
+	 */
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
 	private Map map;
+	private int width = 35;
+	private int height = 25;
+	
 	private List<Department> departements = new ArrayList<Department>();
 	private Credit credit = new Credit (GameConfiguration.INIT_CREDIT);
 	private Timer time;
@@ -49,6 +77,21 @@ public class Hospital {
 		this.map = map;
 		this.time = time;
 		/*this.credit = credit;*/
+	}
+	public Hospital(Map map, Timer time, Credit credit) {
+		this.map = map;
+		this.time = time;
+		this.credit = credit;
+	}
+	public Hospital(Map map,int height,int width,Timer time, int credit) {
+		this.map = map;
+		this.height = height;
+		this.width = width;
+		this.time = time;
+		//Timer t = new Timer(hh, mm);
+		
+		//this.time = t;
+		this.credit.setValue(credit);
 	}
 	public Cardiology getCardiology(){
 		return cardiology;
@@ -162,7 +205,7 @@ public class Hospital {
 	
 	public void nextRound() {
 		int t =getTime().getMm().getValue();
-		System.out.println(t%2);
+		
 		
 		if (t%2 == 0 ){
 			generateHommes();
@@ -197,20 +240,14 @@ public class Hospital {
 	
 	@Override
 	public String toString() {
-		return "hospital [departements=" + departements + ", credit=" + credit
+		return "hospitaldepartements=" + departements + ", credit=" + credit
 
 				+ ", time=" + time + "]";
 	}
-	/*public void add(Money money) {
-		moneys.add(money);
-		
-	}
-	public ArrayList<Money> getMoneys() {
-		
-		return (ArrayList<Money>) moneys;
+	public void addDep(Department department) {
+		departements.add(department);
 	}
 	
-*/
 	
 	
 	

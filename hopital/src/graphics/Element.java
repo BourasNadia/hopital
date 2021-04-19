@@ -1,5 +1,6 @@
 package graphics;
 
+import hospital.Hospital;
 import hospital.elements.Credit;
 import hospital.elements.Department;
 import hospital.elements.GeneralMedcine;
@@ -13,6 +14,7 @@ import hospital.map.Map;
 import hospital.timer.Timer;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -24,9 +26,16 @@ import config.GameConfiguration;
 public class Element {
 	private Pediatrics pediatrics = null;
 	private BufferedImage img ;
+	//private Hospital hospital;
 	
-	public void paint(Map map, Graphics graphics) {
+	
+	
+	public void paint(Map map, Graphics graphics ,Hospital hospital) {
+		int height = hospital.getHeight();
+		int width = hospital.getWidth();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
+		int x = ((60 - width)/2)*blockSize;
+		int y = ((40 - height)/2)*blockSize;
 		Block[][] blocks = map.getBlocks();
 		for (int lineIndex = 0; lineIndex < map.getLineCount(); lineIndex++) {
 			for (int columnIndex = 0; columnIndex < map.getColumnCount(); columnIndex++) {
@@ -35,6 +44,8 @@ public class Element {
 				if ((lineIndex + columnIndex) % 2 == 0) {
 					graphics.setColor(new Color(200, 200,200));
 					graphics.fillRect(block.getColumn() * blockSize, block.getLine() * blockSize, blockSize, blockSize);
+					graphics.setColor(Color.RED);
+					graphics.drawRect(x, y,width*blockSize, height*blockSize);
 				}
 			}
 		}
@@ -78,6 +89,7 @@ public class Element {
 	
 	
 	public void paint(Homme homme, Graphics graphics,Timer timer) {
+		
 		Block position = homme.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 		

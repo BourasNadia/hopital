@@ -1,5 +1,6 @@
 package graphics;
 
+import hospital.Audio;
 import hospital.Hospital;
 import hospital.elements.Cardiology;
 import hospital.elements.Credit;
@@ -32,6 +33,7 @@ import javax.swing.JButton;
 
 public class AddNewDepartemnt extends JDialog{
 	private Hospital hospital ;
+	private Audio audio = new Audio();
 	private final static Dimension SizeDepartemntShop = new Dimension(GameConfiguration.DEPPARTEMENT_SHOP_WIDTH, GameConfiguration.DEPPARTEMENT_SHOP_HEIGHT);
 	private final static Dimension SizeFooteur = new Dimension(400, 100);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,17);
@@ -70,7 +72,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnSurgery.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_SRGERY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nSurgery Price : "+GameConfiguration.DEP_PRICE_SRGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
@@ -104,7 +106,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnEmergency.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_EMERGENCY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "
@@ -144,7 +146,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnRadiology.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_RADIOLOGY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nRADIOLOGY Price : "+GameConfiguration.DEP_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
@@ -179,7 +181,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnNeurology.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_NEUROLOGY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nNEUROLOGY Price : "+GameConfiguration.DEP_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
@@ -205,7 +207,8 @@ public class AddNewDepartemnt extends JDialog{
 							hospital.setCredit(credit);
 							String positionLine = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
 							String positionColm = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
-							
+							int height = hospital.getHeight();
+							int width = hospital.getWidth();
 							int line = 5;
 							try {
 								 line= Integer.parseInt(positionLine);
@@ -218,23 +221,28 @@ public class AddNewDepartemnt extends JDialog{
 							} catch (NumberFormatException e2) {
 								 Colm = 5;
 							}
-							
-							if(line<0 || line>40){
-								line = 5;
+							/*System.out.println("---"+(((40-height)/2))+"");
+							System.out.println("---"+(((40+height)/2)-13)+"");
+							System.out.println("---"+(((60-width)/2))+"");
+							System.out.println("---"+(((60+width)/2)-10)+"");*/
+							if(line<((40-height)/2) || line>((40+height)/2)-10/*10 c'est la largeur du dep*/){
+								
+								JOptionPane.showMessageDialog(instance, "You can't make your departement here", "Space", JOptionPane.WARNING_MESSAGE);
+								line=15;
 							}
 							
-							if (Colm<0||Colm>60){
-								Colm = 5;
+							if (Colm<((60-width)/2)||Colm>((60+width)/2)-13/*13 c'est la langeur du dep*/){
+								JOptionPane.showMessageDialog(instance, "You can't make your departement here", "Space", JOptionPane.WARNING_MESSAGE);
+								Colm=15;
 							}
 							
 						
 						
 							Neurology neurology = new Neurology(new Block(line,Colm)) ;
-							//};
 							neurology.setPrise(GameConfiguration.DEP_PRICE_NEUROLOGY);
 							neurology.setLevel(1);
 							neurology.setNb_Patient(GameConfiguration.NUMBER_PATIENTS_NEUROLOGY);
-	
+							neurology.setName("neurology");
 							hospital.set(neurology);
 							hospital.addDep(neurology);
 						}
@@ -256,7 +264,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnGeneralMedcine.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_GENERALMEDECINE<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nGeneral Medcine Price : "+GameConfiguration.DEP_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
@@ -295,7 +303,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnPediatrics.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_PEDIATRICS<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n"
@@ -368,7 +376,7 @@ public class AddNewDepartemnt extends JDialog{
 		btnCardilogy.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_CARDIOLOGY<0) {
 					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nSurgery Price : "+GameConfiguration.DEP_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
@@ -411,6 +419,7 @@ public class AddNewDepartemnt extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				instance.setVisible(false);
 				
 			}
@@ -424,6 +433,7 @@ public class AddNewDepartemnt extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				instance.setVisible(false);
 				
 			}
