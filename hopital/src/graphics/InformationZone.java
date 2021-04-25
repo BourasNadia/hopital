@@ -1,5 +1,6 @@
 package graphics;
 
+import hospital.Audio;
 import hospital.Hospital;
 import hospital.elements.Credit;
 import hospital.timer.Timer;
@@ -14,18 +15,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import config.GameConfiguration;
 
 
 
+/**
+ * a Jpanel where we can see an digital clock and our credit 
+ * we also have a button (Map) for printing the map when we want to
+ * @author Ghezil.A
+ *
+ */
 public class InformationZone extends JPanel implements Runnable{
 	private Hospital hospital;
-	private Timer time = new Timer();
+	private Audio audio = new Audio();
+	//private Timer time = new Timer();
 	private Element element = new Element();
 	private JPanel Pleft= new JPanel();
 	private final static Dimension SizeInformationZone = new Dimension(GameConfiguration.INFORMATIONZONE_WIDTH, GameConfiguration.INFORMATIONZONE_HEIGHT);
@@ -39,10 +45,11 @@ public class InformationZone extends JPanel implements Runnable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final Graphics Graphics = null;
+	//private static final Graphics Graphics = null;
 	public InformationZone(Hospital hospital){
 		this.hospital=hospital;
 	}
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Timer timer = hospital.getTime();
@@ -89,6 +96,7 @@ public class InformationZone extends JPanel implements Runnable{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				if(mapEvent==1){
 					mapEvent = 0 ; 
 				}else{

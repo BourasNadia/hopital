@@ -2,11 +2,21 @@ package hospital.elements;
 
 import hospital.map.Block;
 
-public class Money extends Department{
-
+/**
+ * this is a data class
+ * @author ghezil.A
+ *
+ */
+public class Money {
+	private Block position;
 	public Money(Block position) {
-		super(position);
-		// TODO Auto-generated constructor stub
+		this.setPosition(position);
+	}
+	public Block getPosition() {
+		return position;
+	}
+	public void setPosition(Block position) {
+		this.position = position;
 	}
 	
 }

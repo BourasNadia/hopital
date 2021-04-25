@@ -1,34 +1,84 @@
 package hospital.elements;
 
-import java.util.List;
-
-import hospital.staff.Doctor;
-import hospital.staff.NursingTeam;
 import hospital.map.Block;
 
+/**
+ * 
+ * this is the mother class from which all the others derive
+ * Data class
+ * @author Ghezil.A
+ * @author Jaafar.A
+ *
+ */
+
+
 public class Department {
+	
+	/**
+	 * position of the department
+	 */
 	private Block position;
+	/**
+	 * Name of the department
+	 */
 	private String Name;
+	/**
+	 * level of the department
+	 */
 	private int level;
+	
+
+	/**
+	 * the Doctors Grade of the department
+	 */
+	private int drGrade;
+	/**
+	 * the Nursing Teams Grade of the department
+	 */
+	private int ntGrade;
+	/**
+	 * the prise of the department
+	 */
 	private int prise;
+	/**
+	 * the number of patient that generate the department
+	 */
 	private int nb_Patient ;
-	private int size;
-	private List<Doctor> doctors ;
-	private List<NursingTeam> nursingteams;
+	
+	/**
+	 * the Dimension of the department
+	 */
+	private int sizeLine;
+	private int sizeColm;
 
 	/**
-	 * @return the nursingteams
+	 * @return the sizeLine
 	 */
-	public List<NursingTeam> getNursingteams() {
-		return nursingteams;
+	public int getSizeLine() {
+		return sizeLine;
 	}
 
 	/**
-	 * @param nursingteam the nursingteams to set
+	 * @param sizeLine the sizeLine to set
 	 */
-	public void setNursingteams(List<NursingTeam> nursingteams) {
-		this.nursingteams = nursingteams;
+	public void setSizeLine(int sizeLine) {
+		this.sizeLine = sizeLine;
 	}
+
+	/**
+	 * @return the sizeColm
+	 */
+	public int getSizeColm() {
+		return sizeColm;
+	}
+
+	/**
+	 * @param sizeColm the sizeColm to set
+	 */
+	public void setSizeColm(int sizeColm) {
+		this.sizeColm = sizeColm;
+	}
+
 
 	/**
 	 * @return the level
@@ -75,30 +125,9 @@ public class Department {
 	/**
 	 * @return the size
 	 */
-	public int getSize() {
-		return size;
-	}
-
-	/**
-	 * @param size the size to set
-	 */
-	public void setSize(int size) {
-		this.size = size;
-	}
-
-	/**
-	 * @return the doctors
-	 */
-	public List<Doctor> getDoctors() {
-		return doctors;
-	}
-
-	/**
-	 * @param doctors the doctors to set
-	 */
-	public void setDoctors(List<Doctor> doctors) {
-		this.doctors = doctors;
-	}
+	
+	
+	
 
 	public Department(Block position) {
 		this.position = position;
@@ -123,5 +152,32 @@ public class Department {
 
 	public void setName(String name) {
 		Name = name;
+	}
+	/**
+	 * @return the drGrade
+	 */
+	public int getDrGrade() {
+		return drGrade;
+	}
+
+	/**
+	 * @param drGrade the drGrade to set
+	 */
+	public void setDrGrade(int drGrade) {
+		this.drGrade = drGrade;
+	}
+
+	/**
+	 * @return the ntGrade
+	 */
+	public int getNtGrade() {
+		return ntGrade;
+	}
+
+	/**
+	 * @param ntGrade the ntGrade to set
+	 */
+	public void setNtGrade(int ntGrade) {
+		this.ntGrade = ntGrade;
 	}
 }

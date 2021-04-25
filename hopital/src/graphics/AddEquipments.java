@@ -1,10 +1,11 @@
 package graphics;
 
+import hospital.Audio;
+import hospital.Equipment;
 import hospital.Hospital;
-import hospital.elements.Credit;
+
 import hospital.elements.Department;
-import hospital.elements.Neurology;
-import hospital.map.Block;
+
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -21,12 +22,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import config.GameConfiguration;
 
+
+/**
+ * This Class is an Dialog box with many JComboBox for adding equipment to the hospital 
+ * by updating the Level of an specific department
+ * Date : 26/02/2021
+ * @author Ghezil.A
+ *
+ */
 public class AddEquipments extends JDialog{
 	private final static Dimension SizeDepartemntShop = new Dimension(430,300);
 	private Font font = new Font(Font.MONOSPACED, Font.BOLD,17);
 	private Hospital hospital;
+	private Audio audio = new Audio();
+	
+	/**
+	 * I have add this object because we need same method implemented on it
+	 */
+	private Equipment equipment = new Equipment(); 
 	/**
 	 * 
 	 */
@@ -38,6 +52,11 @@ public class AddEquipments extends JDialog{
 		this.hospital = hospital;
 	}
 
+	/**
+	 * build the dialog box witch in we can select a department from a list
+	 * select a level of the update 
+	 * and call equipment.addEquipment(..) to update the selected department
+	 */
 	public void addequipments(){
 		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
 		AddEquipments instance=this;
@@ -50,22 +69,8 @@ public class AddEquipments extends JDialog{
 		
 
 		List<String> choicesArray =new ArrayList<String>();
-		//List<String> LevelArray =new ArrayList<String>();
+		choicesArray = equipment.chois(departements, hospital);
 
-		for (int i = 0; i < departements.size(); i++) {
-			//System.out.println(departements.get(i).toString());
-			if(departements.get(i).equals(hospital.getNeurology())){
-				choicesArray.add("Neurology");
-			}
-			if(departements.get(i).equals(hospital.getPediatrics())){
-				choicesArray.add("Pediatrics");
-			}
-			
-		}
-		
-		
-		
-		
 		String[] choices =  choicesArray.toArray(new String[0]);
 		
 		JComboBox<String> menuDepartement = new JComboBox<String>( choices);
@@ -80,10 +85,10 @@ public class AddEquipments extends JDialog{
 		labelUpdate.setFont(font);
 		instance.add(labelUpdate);
 		String[] choices1 = { "Level 1", "Level 2", "Level 3" };
-		JComboBox<String>menuTypeStaff = new JComboBox<String>(choices1);
+		JComboBox<String>menuLevel = new JComboBox<String>(choices1);
 		menuDepartement.setFont(font);
-		menuTypeStaff.setFont(font);
-		instance.add(menuTypeStaff);
+		menuLevel.setFont(font);
+		instance.add(menuLevel);
 		
 
 		JButton btnFinish = new JButton("Finish");
@@ -92,59 +97,10 @@ public class AddEquipments extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				audio.getaCClic().play();
 				String x = String.valueOf(menuDepartement.getSelectedItem());
-				String y = String.valueOf(menuTypeStaff.getSelectedItem());
-				
-				Credit credit = new Credit(hospital.getCredit().getValue());
-				
-				if(x=="Neurology"){
-					int level = hospital.getNeurology().getLevel();
-					
-					switch(y){
-					case "Level 1":
-						JOptionPane.showMessageDialog(instance,"you can't do this operation","Warning", JOptionPane.WARNING_MESSAGE);
-						
-						break;
-					case "Level 2":
-						
-						if (level==1 ) {
-							if ((credit.getValue())-GameConfiguration.UPDATE_PRICE_NEUROLOGY<0) {
-								JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
-							}else {
-								int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-										+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-						
-										+ "augmentation of patients nubmer per day : "
-										+5+"\n"
-										+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-								if (rep==JOptionPane.YES_OPTION){
-									credit.dicCredit(GameConfiguration.DEP_PRICE_NEUROLOGY);
-									hospital.setCredit(credit);
-									
-									hospital.getNeurology().setNb_Patient(GameConfiguration.NUMBER_PATIENTS_NEUROLOGY+5);
-
-									hospital.getNeurology().setLevel(2);
-								}
-							}
-							
-							
-							
-						}
-						break;
-					case "Level 3":
-						if (level==1 ||level==2 ) {
-							hospital.getNeurology().setLevel(3);
-						}else{
-							JOptionPane.showMessageDialog(instance,"you can not update this department","Warning", JOptionPane.WARNING_MESSAGE);
-							
-						}
-						break;
-					}
-				}else{
-					JOptionPane.showMessageDialog(instance,y,"Warning", JOptionPane.WARNING_MESSAGE);
-					
-				}
-				
+				String y = String.valueOf(menuLevel.getSelectedItem());
+				equipment.addEquipment(hospital, x, y, instance);
 			}
 		});
 		instance.add(btnFinish);
@@ -157,13 +113,14 @@ public class AddEquipments extends JDialog{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int level = hospital.getNeurology().getLevel();
-				JOptionPane.showMessageDialog(instance,level,"Warning", JOptionPane.WARNING_MESSAGE);
-				
-				
+				audio.getaCClic().play();
+				instance.setVisible(false);
 			}
 		});
 		pack();
+		/**
+		 * if we dont have departments yet a Warning JOptionPane will open
+		 */
 		if(choicesArray.isEmpty()){
 			JOptionPane.showMessageDialog(instance,"you shoud have a depertement to add Equipments in","Warning", JOptionPane.WARNING_MESSAGE);
 			instance.setVisible(false);

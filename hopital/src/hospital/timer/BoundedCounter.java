@@ -1,5 +1,10 @@
 package hospital.timer;
 
+/**
+ * data Class of a BoundedCounter (the same as that of the first semester P.O.O )
+ * @author Jaafar.A
+ *
+ */
 public class BoundedCounter extends Counter {
 	
 	private int max ;
@@ -11,12 +16,14 @@ public class BoundedCounter extends Counter {
 		this.min = min ;
 	}
 	
+	@Override
 	public void inc(){
 		if(getValue() < max){
 			super.inc();
 		}
 	}
 	
+	@Override
 	public void dic(){
 		if(getValue() < max ){
 			super.dic();

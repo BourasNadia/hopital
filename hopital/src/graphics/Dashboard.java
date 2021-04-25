@@ -1,6 +1,5 @@
 package graphics;
 
-import java.awt.Color;
 import java.awt.Graphics;
 
 
@@ -9,24 +8,26 @@ import java.awt.Graphics;
 
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
 
+import hospital.Audio;
 import hospital.Hospital;
+import hospital.elements.Cardiology;
 import hospital.elements.Department;
+import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Homme;
 import hospital.elements.Money;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
+import hospital.elements.Radiology;
 import hospital.elements.Reception;
-import hospital.map.Block;
+import hospital.elements.Surgery;
 import hospital.map.Map;
 import hospital.timer.Timer;
 
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
@@ -34,14 +35,27 @@ import config.GameConfiguration;
 
 
 
+/**
+ * This class is the JPanel where we draw all our department 
+ * this is the playground our our game
+ * @author Ghezil.A
+ *
+ */
 public class Dashboard extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Map map;
 	private Hospital hospital;
+	/**
+	 * this is a object of the money class witch have the same structure as CREDIT 
+	 * just for drawing Coins of Money when we win some
+	 */
+	private Money money;
+	
+	/**
+	 * to generate an audio clip when we win some money
+	 */
+	private Audio audio = new Audio();
 	
 	private Element element = new Element();
 	
@@ -50,23 +64,36 @@ public class Dashboard extends JPanel {
 		this.hospital=hospital;
 	}
 	
+	/* (non-Javadoc)
+	 * here we paint our department in the playground 
+	 * if the department(index) is equals to on of the departments then draw it
+	 * and if time is equal to what ever we have chose that is moments for take the recipe
+	 * we take it and draw a image for a coin of money
+	 * 
+	 * we draw patients(Homme) to if we have more than 1 department
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Neurology neurology = hospital.getNeurology();
 		GeneralMedcine generalMedcine= hospital.getGeneralMedcine();
 		Pediatrics pediatrics = hospital.getPediatrics();
+
+		Cardiology cardiology = hospital.getCardiology();
+		Emergency emergency= hospital.getEmergency();
+		Radiology radiology = hospital.getRadiology();
+		Surgery surgery = hospital.getSurgery();
+
 		Reception reception = hospital.getReception();
 		Timer timer = hospital.getTime();
 		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
-		List<Homme>hommes = (ArrayList<Homme>)hospital.getHommes();
-	//	List<Money>moneys = (ArrayList<Money>)hospital.getMoneys();
-		
-		
+		List<Homme>hommes = hospital.getHommes();		
 		if(InformationZone.mapEvent == 1){
 			element.paint(map, g,hospital);
 		}
 		
-		if ( departements.size()>=1) {
+		if ( departements.size()>1) {
 			try{
 				for (Homme homme : hommes) {
 					element.paint(homme, g,timer);
@@ -82,57 +109,93 @@ public class Dashboard extends JPanel {
 		
 		
 		for (int i = 0; i < departements.size(); i++) {
+			//--------------------------------------------------------------------------------
+			//------------------------------------pediatrics--------------------------------------------
 			
 			if(departements.get(i).equals(pediatrics)){
 				element.paint(pediatrics, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
-						hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS*hospital.getPediatrics().getNb_Patient());
+				if(hospital.getTime().getMm().getValue()==00){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS*hospital.getPediatrics().getNb_Patient());
 				}
 			}
+			//--------------------------------------------------------------------------------
+			//------------------------------------neurology--------------------------------------------
 			if(departements.get(i).equals(neurology)){
 				element.paint(neurology, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
-					//Money money = new Money(departements.get(i).getPosition());
-					//hospital.add(money);
+				if(hospital.getTime().getMm().getValue()==10){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();
 					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY*hospital.getNeurology().getNb_Patient());
 				}
 				
 			}
+			//--------------------------------------------------------------------------------
+			//---------------------------------------generalMedcine-----------------------------------------
 			if(departements.get(i).equals(generalMedcine)){
 				element.paint(generalMedcine, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
-					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE);
+				if( hospital.getTime().getMm().getValue()==20){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE*hospital.getGeneralMedcine().getNb_Patient());
 			}
 			}
-			if(departements.get(i).equals(generalMedcine)){
-				element.paint(generalMedcine, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
-					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+			//--------------------------------------------------------------------------------
+			//-----------------------------------------cardiology---------------------------------------
+			if(departements.get(i).equals(cardiology)){
+				element.paint(cardiology, g);
+				if(hospital.getTime().getMm().getValue()==30){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_CARDIOLOGY*hospital.getCardiology().getNb_Patient());
 			}
 			}
-			if(departements.get(i).equals(generalMedcine)){
-				element.paint(generalMedcine, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
+			//--------------------------------------------------------------------------------
+			//------------------------------------------emergency--------------------------------------
+			if(departements.get(i).equals(emergency)){
+				
+				element.paint(emergency, g);
+				if( hospital.getTime().getMm().getValue()==35){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
 					
-					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_EMERGENCY*hospital.getEmergency().getNb_Patient());
 			}
 			}
-			if(departements.get(i).equals(generalMedcine)){
-				element.paint(generalMedcine, g);
-				if(hospital.getTime().getHh().getValue()==17 && hospital.getTime().getMm().getValue()==30){
-					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS);
+			//--------------------------------------------------------------------------------
+			//---------------------------------------radiology----------------------------------------
+			if(departements.get(i).equals(radiology)){
+				element.paint(radiology, g);
+				if( hospital.getTime().getMm().getValue()==40){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_RADIOLOGY*hospital.getRadiology().getNb_Patient());
+				}
 			}
+			//--------------------------------------------------------------------------------
+			//--------------------------------------surgery------------------------------------------
+			if(departements.get(i).equals(surgery)){
+				element.paint(surgery, g);
+				if( hospital.getTime().getMm().getValue()==50){
+					money = new Money(departements.get(i).getPosition());
+					element.paint(money, g);
+					audio.getaCArgent().play();	
+					hospital.setCredit(hospital.getCredit().getValue()+GameConfiguration.CONSULTATION_PRICE_SURGERY*hospital.getSurgery().getNb_Patient());
+				}
 			}
+			//--------------------------------------------------------------------------------
+			//--------------------------------------------------------------------------------
 			
 		}
 		Dashboard instance = this;
-		instance.setBorder(BorderFactory.createLoweredBevelBorder());
-		
-
-		
-
-		
-		
+		instance.setBorder(BorderFactory.createLoweredBevelBorder());		
 		element.paint(reception,g);
 
 		

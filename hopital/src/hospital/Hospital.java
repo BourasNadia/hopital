@@ -1,9 +1,11 @@
 package hospital;
 import java.util.ArrayList;
 
+
 import hospital.map.Block;
 
 import java.util.List;
+
 
 import config.GameConfiguration;
 import hospital.map.Map;
@@ -13,8 +15,7 @@ import hospital.elements.Department;
 import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Homme;
-import hospital.elements.Money;
-import hospital.elements.Money;
+
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
 import hospital.elements.Radiology;
@@ -22,8 +23,10 @@ import hospital.elements.Reception;
 import hospital.elements.Surgery;
 import hospital.timer.Timer;
 /**
- * cette Classe de traitement elle sera implemanter completement plus tard
+ * Date 10/02/2021
+ * @author Bouras.N
  * @author A.Ghezil
+ * @version 1.0
  * */
 public class Hospital {
 	
@@ -63,13 +66,39 @@ public class Hospital {
 	private List<Homme> hommes= new ArrayList<Homme>();
 	//private List<Money> moneys= new ArrayList<Money>();
 	private Cardiology cardiology;
-	private Reception reception;
+	private Reception reception = new Reception(new Block(0,0));
 	private GeneralMedcine generalMedcine;
 	private Pediatrics pediatrics;
 	private Surgery surgery;
+	private Department department;
 	private Neurology neurology;
 	private Radiology radiology;
 	private Emergency emergency;
+	
+	/**
+	 * @return the department
+	 */
+	public Department getDepartment() {
+		return department;
+	}
+	/**
+	 * @param department the department to set
+	 */
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	/**
+	 * @param reception the reception to set
+	 */
+	public void setReception(Reception reception) {
+		this.reception = reception;
+	}
+	/**
+	 * @param surgery the surgery to set
+	 */
+	public void setSurgery(Surgery surgery) {
+		this.surgery = surgery;
+	}
 	public List<Department> getDepartements() {
 		return departements;
 	}
@@ -93,6 +122,24 @@ public class Hospital {
 		//this.time = t;
 		this.credit.setValue(credit);
 	}
+	public int UpdatePlayground(){
+		int c = credit.getValue() - 100; 
+		if(width<=56){
+			width+=2;
+		}
+		if(height<=35){
+			height+=2;
+		}
+		if(height>35 && width>56 ){
+			return 0;
+		}else{
+			credit.setValue(c);
+			return 1;
+		}
+		
+		
+	}
+	
 	public Cardiology getCardiology(){
 		return cardiology;
 	}
@@ -148,14 +195,17 @@ public class Hospital {
 		return neurology;
 	}
 	
+	/**
+	 * @param departements
+	 */
 	public void setDepartements(List<Department> departements) {
 		this.departements = departements;
 	}
 	public void set(Emergency emergency) {
-		this.emergency = emergency;
+		this.setEmergency(emergency);
 	}
 	public void set(Radiology radiology) {
-		this.radiology = radiology;
+		this.setRadiology(radiology);
 	}
 	public void set(GeneralMedcine generalMedcine) {
 		this.generalMedcine = generalMedcine;
@@ -196,26 +246,37 @@ public class Hospital {
 		this.time = time;
 	}
 
+	/**
+	 * 
+	 */
 	public void generateHommes() {
-		Block position =  new Block(39,31);
+		Block position =  new Block(39,28);
 		Homme homme = new Homme(position);
 		add(homme);
 
 	}
 	
+	/**
+	 * 
+	 */
 	public void nextRound() {
 		int t =getTime().getMm().getValue();
 		
 		
 		if (t%2 == 0 ){
 			generateHommes();
-		}
+		
+	}
 		
 		moveHommes();
 	}
 
+	/**
+	 * a method to move the patient (inspired by that of M.Lui)
+	 * if the patient touch the Reception department it will disappear
+	 */
 	private void moveHommes() {
-		List<Homme> outOfBoundMissiles = new ArrayList<Homme>();
+		List<Homme> outHomme = new ArrayList<Homme>();
 
 		for (Homme homme : hommes) {
 			Block position = homme.getPosition();
@@ -225,12 +286,12 @@ public class Hospital {
 				Block newPosition = map.getBlock(position.getLine() - 2, position.getColumn());
 				homme.setPosition(newPosition);
 			} else {
-				outOfBoundMissiles.add(homme);
+				outHomme.add(homme);
 			}
 
 		}
 
-		for (Homme homme : outOfBoundMissiles) {
+		for (Homme homme : outHomme) {
 			hommes.remove(homme);
 		}
 	}
@@ -246,6 +307,19 @@ public class Hospital {
 	}
 	public void addDep(Department department) {
 		departements.add(department);
+	}
+	
+	public Radiology getRadiology() {
+		return radiology;
+	}
+	public void setRadiology(Radiology radiology) {
+		this.radiology = radiology;
+	}
+	public void setEmergency(Emergency emergency) {
+		this.emergency = emergency;
+	}
+	public Emergency getEmergency(){
+		return emergency;
 	}
 	
 	

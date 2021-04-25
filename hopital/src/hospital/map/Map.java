@@ -1,11 +1,23 @@
 package hospital.map;
-
-public class Map {
+/**
+ * our map is inspired by that of M.Lui
+ * a 2-dimensional array of blocks
+ * @author Jaafar.Amir
+ * @author Bouras.N
+ *
+ */
+public class Map { 
+	/**
+	 * 
+	 */
 	private Block[][] blocks;
-
 	private int lineCount;
 	private int columnCount;
-
+	/**
+	 * 
+	 * @param lineCount
+	 * @param columnCount
+	 */
 	public Map(int lineCount, int columnCount) {
 		this.lineCount = lineCount;
 		this.columnCount = columnCount;
@@ -18,7 +30,7 @@ public class Map {
 			}
 		}
 	}
-
+	
 	public Block[][] getBlocks() {
 		return blocks;
 	}
@@ -34,33 +46,17 @@ public class Map {
 	public Block getBlock(int line, int column) {
 		return blocks[line][column];
 	}
-
-	public boolean isOnTop(Block block) {
-		int line = block.getLine();
-		return line == 0;
-	}
+	
+	/**
+	 * 
+	 * @param block
+	 * @param element
+	 * @return true if it touch the element
+	 */
 	public boolean istouch(Block block,Block element) {
 		int line = block.getLine();
-		return (line == element.getLine()+12)  ;
+		return (line == element.getLine())  ;
 	}
-
-	public boolean isOnBottom(Block block) {
-		int line = block.getLine();
-		return line == lineCount - 1;
-	}
-
-	public boolean isOnLeftBorder(Block block) {
-		int column = block.getColumn();
-		return column == 0;
-	}
-
-	public boolean isOnRightBorder(Block block) {
-		int column = block.getColumn();
-		return column == columnCount - 1;
-	}
-
-	public boolean isOnBorder(Block block) {
-		return isOnTop(block) || isOnBottom(block) || isOnLeftBorder(block) || isOnRightBorder(block);
-	}
+	
 
 }

@@ -1,8 +1,16 @@
 package hospital.elements;
 
-import hospital.map.Block;
+/**
+ * A data class witch has 2 basic method 
+ * to increment and decrement the value
+ * @author Bouras.N
+ *
+ */
 
 public class Credit {
+	/**
+	 * the value of our Credit
+	 */
 	private int value ;
 	
 	public Credit (int value){
@@ -24,6 +32,7 @@ public class Credit {
 	public void dicCredit(int price){
 		value = value - price ; 
 	}
+	@Override
 	public String toString(){
 		return ""+value;
 	}

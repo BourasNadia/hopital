@@ -2,6 +2,13 @@ package hospital.map;
 
 import config.GameConfiguration;
 
+/**
+ * this is a data class 
+ * our Playground is is divided by Block and :
+ * A Block is a square 
+ * @author Bouras.n
+ *
+ */
 public class Block {
 	private int line;
 	private int column;

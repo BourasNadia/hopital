@@ -21,6 +21,7 @@ public class Button extends JButton {
 		setPreferredSize(size);
 		setContentAreaFilled(false);
 	}
+	@Override
 	public void paintComponent(Graphics g) {
 	     if (getModel().isArmed()) {
 	           g.setColor(new Color(230,230,250));
@@ -31,11 +32,13 @@ public class Button extends JButton {
 	     super.paintComponent(g);
 	}
 	
+	@Override
 	public void paintBorder(Graphics g) {
 	     g.setColor(getForeground());
 	     g.drawOval(0, 0, getSize().width-2, getSize().height-2);
 	}
 	Shape shape;
+	@Override
 	public boolean contains(int x, int y) {
 	     if (shape == null || !shape.getBounds().equals(getBounds())) {
 	          shape = new Ellipse2D.Float(0, 0, getWidth(), getHeight());

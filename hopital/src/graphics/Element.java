@@ -1,14 +1,17 @@
 package graphics;
 
 import hospital.Hospital;
+import hospital.elements.Cardiology;
 import hospital.elements.Credit;
-import hospital.elements.Department;
+import hospital.elements.Emergency;
 import hospital.elements.GeneralMedcine;
 import hospital.elements.Homme;
 import hospital.elements.Money;
 import hospital.elements.Neurology;
 import hospital.elements.Pediatrics;
+import hospital.elements.Radiology;
 import hospital.elements.Reception;
+import hospital.elements.Surgery;
 import hospital.map.Block;
 import hospital.map.Map;
 import hospital.timer.Timer;
@@ -23,13 +26,20 @@ import javax.imageio.ImageIO;
 
 import config.GameConfiguration;
 
+/**
+ * Class for paint the all Element of our hospital
+ * Map - Departments - Money - Credit - Patients(Homme)
+ * @author Ghezil.A
+ *
+ */
 public class Element {
-	private Pediatrics pediatrics = null;
+	private Font font = new Font("TimesRoman",Font.BOLD,30);
 	private BufferedImage img ;
 	//private Hospital hospital;
 	
-	
-	
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------map-------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------	
 	public void paint(Map map, Graphics graphics ,Hospital hospital) {
 		int height = hospital.getHeight();
 		int width = hospital.getWidth();
@@ -45,25 +55,52 @@ public class Element {
 					graphics.setColor(new Color(200, 200,200));
 					graphics.fillRect(block.getColumn() * blockSize, block.getLine() * blockSize, blockSize, blockSize);
 					graphics.setColor(Color.RED);
+					graphics.setFont(font);
 					graphics.drawRect(x, y,width*blockSize, height*blockSize);
 				}
 			}
 		}
 	}
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------reception--------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+
 
 	public void paint(Reception reception,Graphics graphics) {
 		Block position = reception.getPosition();
 		int blockSize = GameConfiguration.BLOCK_SIZE;
 		int y = position.getLine();
-		int x = position.getColumn()+2;
+		int x = position.getColumn();
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/logo_hopital.png") );
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/logo_hopital.png") );
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*14,blockSize*11, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_RECEPTION,blockSize*GameConfiguration.DEP_LINE_RECEPTION, null);
 	}
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------money--------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+
+	
+	public void paint(Money money,Graphics graphics) {
+		Block position = money.getPosition();
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		int y = position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/AnimatedCoins.gif") );
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*8,blockSize*8, null);
+	}
+	//-----------------------------------------------------------------------------------------------------
+	//------------------------------------credit-----------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+
 	
 	public void paint(Credit credit,Graphics graphics){
 		int y = 40;
@@ -86,7 +123,10 @@ public class Element {
 	}
 
 	
-	
+	//-----------------------------------------------------------------------------------------------------
+		//-----------------------------------homme------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------------
+
 	
 	public void paint(Homme homme, Graphics graphics,Timer timer) {
 		
@@ -95,40 +135,27 @@ public class Element {
 		
 		int y = position.getLine();
 		int x = position.getColumn();
-		int rand =getRandomNumber(0,1);
+		int rand =getRandomNumber(0,2);
 		
 		
 		
 		try {
 			if(rand==0){
-				img = ImageIO.read(getClass().getResourceAsStream("/config/homme.png") );	
+				img = ImageIO.read(getClass().getResourceAsStream("/config/images/homme.png") );	
+			}else if(rand==1){
+				img = ImageIO.read(getClass().getResourceAsStream("/config/images/homme1.png") );
 			}else{
-				img = ImageIO.read(getClass().getResourceAsStream("/config/homme1.png") );
+				img = ImageIO.read(getClass().getResourceAsStream("/config/images/homme2.png") );
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*4,blockSize*3, null);
-		
-		//graphics.setColor(Color.RED);
-		
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*2,blockSize*2, null);
 	}
-	
-/*	public void paint(Money money, Graphics graphics) {
-		int blockSize = GameConfiguration.BLOCK_SIZE;
-		Block position = money.getPosition();
-		int y =position.getLine();
-		int x = position.getColumn();
-		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/neurology.png") );
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
-	}
-	
-	*/
+	//-----------------------------------------------------------------------------------------------------
+		//-------------------------------neurology----------------------------------------------------------------------
+		//-----------------------------------------------------------------------------------------------------
+
 	
 	public void paint(Neurology neurology, Graphics graphics) {
 		int blockSize = GameConfiguration.BLOCK_SIZE;
@@ -136,45 +163,108 @@ public class Element {
 		int y =position.getLine();
 		int x = position.getColumn();
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/neurology.png") );
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/neurology.png") );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_NEUROLOGY,blockSize*GameConfiguration.DEP_LINE_NEUROLOGY, null);
 	}
 	
-	public void paint(Pediatrics pediatrics, Graphics graphics) {
-		Block position = pediatrics.getPosition();
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------Pediatrics--------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(Pediatrics Pediatrics, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = Pediatrics.getPosition();
 		int y =position.getLine();
 		int x = position.getColumn();
-		int blockSize = GameConfiguration.BLOCK_SIZE;
-		
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/Pediatry.png") );
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/Pediatrics.png") );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*10,blockSize*13, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_PEDIATRICS,blockSize*GameConfiguration.DEP_LINE_PEDIATRICS, null);
 	}
 
-	
-	
-	public void paint(GeneralMedcine generalMedcine, Graphics graphics) {
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------Cardiology--------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(Cardiology Cardiology, Graphics graphics) {
 		int blockSize = GameConfiguration.BLOCK_SIZE;
-		int y = 24;
-		int x = 18;
+		Block position = Cardiology.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/config/GeneralMedcine.jpg") );
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/Cardiology.png") );
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*22,blockSize*15, null);
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_CARDIOLOGY,blockSize*GameConfiguration.DEP_LINE_CARDIOLOGY, null);
 	}
 
-	public void paint(Department department, Graphics g) {
-		
+	//-----------------------------------------------------------------------------------------------------
+	//--------------------------------------Emergency---------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(Emergency Emergency, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = Emergency.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/Emergency.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_EMERGENCY,blockSize*GameConfiguration.DEP_LINE_EMERGENCY, null);
 	}
 
+	//-----------------------------------------------------------------------------------------------------
+	//--------------------------------------GeneralMedcine---------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(GeneralMedcine GeneralMedcine, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = GeneralMedcine.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/GeneralMedicine.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_GENERALMEDECINE,blockSize*GameConfiguration.DEP_LINE_GENERALMEDECINE, null);
+	}
+
+	//-----------------------------------------------------------------------------------------------------
+	//---------------------------------------Radiology--------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(Radiology Radiology, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = Radiology.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/Radiology.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_RADIOLOGY,blockSize*GameConfiguration.DEP_LINE_RADIOLOGY, null);
+	}
+	//-----------------------------------------------------------------------------------------------------
+	//------------------------------------Surgery-----------------------------------------------------------------
+	//-----------------------------------------------------------------------------------------------------
+	public void paint(Surgery Surgery, Graphics graphics) {
+		int blockSize = GameConfiguration.BLOCK_SIZE;
+		Block position = Surgery.getPosition();
+		int y =position.getLine();
+		int x = position.getColumn();
+		try {
+			img = ImageIO.read(getClass().getResourceAsStream("/config/images/Surgery.png") );
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		graphics.drawImage(img, x*blockSize, y*blockSize,blockSize*GameConfiguration.DEP_CLOM_SURGERY,blockSize*GameConfiguration.DEP_LINE_SURGERY, null);
+	}
+	
 	
 
 	
