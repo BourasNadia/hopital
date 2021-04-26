@@ -131,21 +131,6 @@ public class MainFrame extends JFrame implements Runnable{
 							//e1.printStackTrace();
 							hospital = Building.buildInitMobile(map,time);
 						}
-					}else if(retour == 2 ){
-						audio.getaCClic().play();
-						try{
-							Operation operation = new Operation(hospital,map,time);
-							hospital = operation.textReadInformation("DataInformation.csv");
-							operation.textReadDepartement("DataDepartement.csv");
-							
-									
-							
-						}catch(Exception e1){
-							//e1.printStackTrace();
-							hospital = Building.buildInitMobile(map,time);
-						}
-
-						
 					}
 				}else{
 					System.exit(0);
