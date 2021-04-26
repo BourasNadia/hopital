@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
  * This Class is an Dialog box with many JComboBox for adding equipment to the hospital 
  * by updating the Level of an specific department
  * Date : 26/02/2021
- * @author Ghezil.A
+ * @author Jaafar.A
  *
  */
 public class AddEquipments extends JDialog{
@@ -63,7 +63,7 @@ public class AddEquipments extends JDialog{
 		instance.getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER,30	,30));
 		instance.setPreferredSize(SizeDepartemntShop);
 		
-		JLabel label = new JLabel("Select a Departemet:");
+		JLabel label = new JLabel("Select a Department:");
 		label.setFont(font);
 		instance.add(label);
 		
@@ -81,7 +81,7 @@ public class AddEquipments extends JDialog{
 		
 		
 		
-		JLabel labelUpdate = new JLabel("Update the departement:");
+		JLabel labelUpdate = new JLabel("Update the department:");
 		labelUpdate.setFont(font);
 		instance.add(labelUpdate);
 		String[] choices1 = { "Level 1", "Level 2", "Level 3" };

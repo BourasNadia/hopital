@@ -2,8 +2,8 @@ package hospital.timer;
 
 /** A CyclicCounter is a BoundedCounter that he turn on it self 
  *  to increment and decrement the value
- * @author Jaffar.A
- * @author Bouras.N
+ * @author Jaafar.A
+ * 
  *
  */
 public class CyclicCounter extends BoundedCounter{

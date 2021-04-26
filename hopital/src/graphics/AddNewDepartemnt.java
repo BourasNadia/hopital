@@ -1,5 +1,6 @@
 package graphics;
 
+import graphics.chart.ChartManager;
 import hospital.Audio;
 import hospital.Hospital;
 import hospital.elements.Neurology;
@@ -30,6 +31,9 @@ import javax.swing.JPanel;
 import config.GameConfiguration;
 
 import javax.swing.JButton;
+
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
 
 
 /**
@@ -112,18 +116,18 @@ Button btnNeurology= new Button("Neurology");
 					int tmp =0;
 					for (int i = 0; i < departements.size(); i++) {
 						if(departements.get(i).equals(hospital.getNeurology())){
-							JOptionPane.showMessageDialog(instance,"you alredy have a neurology departements","Warning", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(instance,"you already have a neurology departements","Warning", JOptionPane.WARNING_MESSAGE);
 							tmp=1;
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the NEUROLOGY department is : "
-								+GameConfiguration.DEP_PRICE_NEUROLOGY+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance, "department price : "
+								+GameConfiguration.DEP_PRICE_NEUROLOGY+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_NEUROLOGY+"x"+GameConfiguration.DEP_LINE_NEUROLOGY+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_NEUROLOGY+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_NEUROLOGY +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
@@ -210,18 +214,18 @@ Button btnNeurology= new Button("Neurology");
 					int tmp =0;
 					for (int i = 0; i < departements.size(); i++) {
 						if(departements.get(i).equals(hospital.getCardiology())){
-							JOptionPane.showMessageDialog(instance,"you alredy have a Cardiology departements","Warning", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(instance,"you already have a Cardiology departements","Warning", JOptionPane.WARNING_MESSAGE);
 							tmp=1;
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the Cardiology department is : "
-								+GameConfiguration.DEP_PRICE_CARDIOLOGY+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance, "department price : "
+								+GameConfiguration.DEP_PRICE_CARDIOLOGY+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_CARDIOLOGY+"x"+GameConfiguration.DEP_LINE_CARDIOLOGY+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_CARDIOLOGY+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_CARDIOLOGY +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_CARDIOLOGY +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
@@ -303,18 +307,18 @@ Button btnNeurology= new Button("Neurology");
 					int tmp =0;
 					for (int i = 0; i < departements.size(); i++) {
 						if(departements.get(i).equals(hospital.getEmergency())){
-							JOptionPane.showMessageDialog(instance,"you alredy have a Emergency departements","Warning", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(instance,"you already have a Emergency departements","Warning", JOptionPane.WARNING_MESSAGE);
 							tmp=1;
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the Emergency department is : "
-								+GameConfiguration.DEP_PRICE_EMERGENCY+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance, "department price : "
+								+GameConfiguration.DEP_PRICE_EMERGENCY+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_EMERGENCY+"x"+GameConfiguration.DEP_LINE_EMERGENCY+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_EMERGENCY+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_EMERGENCY +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_EMERGENCY +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
@@ -384,7 +388,7 @@ Button btnNeurology= new Button("Neurology");
 /*-----------------------------------------------------------------------------------------------*/		
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/		
-		Button btnGeneralMedcine= new Button("GeneralMedcine");
+		Button btnGeneralMedcine= new Button("General Medicine");
 		btnGeneralMedcine.setFont(font);
 		instance.add(btnGeneralMedcine);
 		btnGeneralMedcine.addActionListener(new ActionListener() {
@@ -393,30 +397,30 @@ Button btnNeurology= new Button("Neurology");
 				audio.getaCClic().play();
 				Credit credit = new Credit(hospital.getCredit().getValue());
 				if ((credit.getValue())-GameConfiguration.DEP_PRICE_GENERALMEDECINE<0) {
-					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nGeneralMedcine Price : "+GameConfiguration.DEP_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nGeneral Medicine Price : "+GameConfiguration.DEP_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 				}else{
 					int tmp =0;
 					for (int i = 0; i < departements.size(); i++) {
 						if(departements.get(i).equals(hospital.getGeneralMedcine())){
-							JOptionPane.showMessageDialog(instance,"you alredy have a GeneralMedcine departements","Warning", JOptionPane.WARNING_MESSAGE);
+							JOptionPane.showMessageDialog(instance,"you already have a General Medicine departements","Warning", JOptionPane.WARNING_MESSAGE);
 							tmp=1;
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the GeneralMedcine department is : "
-								+GameConfiguration.DEP_PRICE_GENERALMEDECINE+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance, "department price : "
+								+GameConfiguration.DEP_PRICE_GENERALMEDECINE+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_GENERALMEDECINE+"x"+GameConfiguration.DEP_LINE_GENERALMEDECINE+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_GENERALMEDECINE+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_GENERALMEDECINE +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
 							
 							
-							//String positionLine = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
-							//String positionColm = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							//String positionLine = JOptionPane.showInputDialog(instance, "Vous pouvez indiquer la position de votre departement ici\n Ligne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							//String positionColm = JOptionPane.showInputDialog(instance, "Vous pouvez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
 							
 							GeneralMedcine GeneralMedcine = new GeneralMedcine(new Block(0,0)) ;
 							
@@ -499,20 +503,20 @@ Button btnNeurology= new Button("Neurology");
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the Pediatrics department is : "
-								+GameConfiguration.DEP_PRICE_PEDIATRICS+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance, "department price : "
+								+GameConfiguration.DEP_PRICE_PEDIATRICS+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_PEDIATRICS+"x"+GameConfiguration.DEP_LINE_PEDIATRICS+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_PEDIATRICS+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_PEDIATRICS +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
 							
 							
-							//String positionLine = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
-							//String positionColm = JOptionPane.showInputDialog(instance, "Vouyez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							//String positionLine = JOptionPane.showInputDialog(instance, "Vous pouvez indiquer la position de votre departement ici\n Line \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
+							//String positionColm = JOptionPane.showInputDialog(instance, "Vous pouvez indiquer la position de votre departement ici\n Colonne \n exemple : 5 (valeur par defaut)", "position", JOptionPane.PLAIN_MESSAGE);
 							
 							Pediatrics Pediatrics = new Pediatrics(new Block(0,0)) ;
 							
@@ -597,13 +601,13 @@ Button btnNeurology= new Button("Neurology");
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the Radiology department is : "
-								+GameConfiguration.DEP_PRICE_RADIOLOGY+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance,"department price : "
+								+GameConfiguration.DEP_PRICE_RADIOLOGY+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_RADIOLOGY+"x"+GameConfiguration.DEP_LINE_RADIOLOGY+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_RADIOLOGY+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_RADIOLOGY +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_RADIOLOGY +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){
@@ -690,13 +694,13 @@ Button btnNeurology= new Button("Neurology");
 						}
 					}
 					if(tmp==0){					
-						int rep = JOptionPane.showConfirmDialog(instance, "the price of the Surgery department is : "
-								+GameConfiguration.DEP_PRICE_SURGERY+"\n"
+						int rep = JOptionPane.showConfirmDialog(instance,"department price : "
+								+GameConfiguration.DEP_PRICE_SURGERY+"$\n"
 								+ "his sizes : "+GameConfiguration.DEP_CLOM_SURGERY+"x"+GameConfiguration.DEP_LINE_SURGERY+" \n"
-								+ "number of patients per day : "
+								+ "patients per day : "
 								+GameConfiguration.NUMBER_PATIENTS_SURGERY+"\n"
 								+ "consultation price : "
-								+GameConfiguration.CONSULTATION_PRICE_SURGERY +"\n"
+								+GameConfiguration.CONSULTATION_PRICE_SURGERY +"$\n"
 								+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 						
 						if (rep==JOptionPane.YES_OPTION){							
@@ -763,6 +767,7 @@ Button btnNeurology= new Button("Neurology");
 /*-----------------------------------------------------------------------------------------------*/		
 /*-----------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------*/	
+		
 		instance.add(new JLabel(""));
 		instance.add(new JLabel(""));
 		

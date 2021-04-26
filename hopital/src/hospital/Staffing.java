@@ -83,8 +83,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -106,8 +106,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -125,8 +125,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -140,7 +140,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -157,8 +157,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -180,8 +180,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -199,8 +199,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_NEUROLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -214,7 +214,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -242,23 +242,7 @@ public class Staffing {
 		-------------------------------------------------------------------------------------------------------------------
 		-------------------------------------------------------------------------------------------------------------------
 		*/
-		/*-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-----------------------------------------------Cardiology--------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		--------------------------------------------Cardiology-----------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		-------------------------------------------------------------------------------------------------------------------
-		*/
+		
 		try{
 				if(x==hospital.getCardiology().getName()){
 					int nTGrade = hospital.getCardiology().getNtGrade();
@@ -275,8 +259,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -298,8 +282,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -317,8 +301,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -332,7 +316,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -349,8 +333,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -372,8 +356,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -391,8 +375,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_CARDIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -406,7 +390,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -450,7 +434,7 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
 											+ "augmentation of patients nubmer per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
@@ -473,8 +457,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -492,8 +476,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -507,7 +491,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -524,8 +508,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -547,8 +531,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -566,8 +550,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_EMERGENCY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -581,7 +565,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -625,8 +609,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -648,8 +632,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE +"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE +"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -667,8 +651,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -682,7 +666,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -699,8 +683,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -722,8 +706,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -741,8 +725,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_GENERALMEDECINE+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -756,7 +740,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -800,8 +784,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -823,8 +807,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -842,8 +826,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -857,7 +841,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -874,8 +858,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -897,8 +881,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -916,8 +900,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_PEDIATRICS+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -931,7 +915,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -975,8 +959,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -998,8 +982,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1017,8 +1001,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1032,7 +1016,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -1049,8 +1033,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1072,8 +1056,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1091,8 +1075,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_RADIOLOGY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1106,7 +1090,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -1150,8 +1134,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1173,8 +1157,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1192,8 +1176,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1207,7 +1191,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;
@@ -1224,8 +1208,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this Staffing  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected Staff is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1247,8 +1231,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+10+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1266,8 +1250,8 @@ public class Staffing {
 									JOptionPane.showMessageDialog(instance,"Sorry, You don't have enough money\n You credit : "+credit.getValue()+"$\nPrice this update  : "+GameConfiguration.UPDATE_PRICE_SURGERY+"$","Money...!",JOptionPane.WARNING_MESSAGE);
 								}else {
 									int rep = JOptionPane.showConfirmDialog(instance, "the price of the selected update is : "
-											+GameConfiguration.UPDATE_PRICE_SURGERY+"\n"
-											+ "augmentation of patients nubmer per day : "
+											+GameConfiguration.UPDATE_PRICE_SURGERY+"$\n"
+											+ "augmentation of patients per day : "
 											+5+"\n"
 											+ "do you want to confirm your purchase ?\n", "confirm the purchase", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
 									if (rep==JOptionPane.YES_OPTION){
@@ -1281,7 +1265,7 @@ public class Staffing {
 								}
 							} 
 								else{
-								JOptionPane.showMessageDialog(instance,"you can not bay this Staff","Warning", JOptionPane.WARNING_MESSAGE);
+								JOptionPane.showMessageDialog(instance,"you can not buy this Staff","Warning", JOptionPane.WARNING_MESSAGE);
 								
 							}
 							break;

@@ -59,7 +59,7 @@ public class OperationZone extends JPanel {
 		instance.setLayout(new GridLayout(5,1) );
 		instance.setBorder(BorderFactory.createLoweredBevelBorder());
 		
-		Button btnaddDepartments = new Button("Add Departements");
+		Button btnaddDepartments = new Button("Add Departments");
 		btnaddDepartments.setFont(font1);
 		instance.add(btnaddDepartments);
 		
@@ -67,8 +67,8 @@ public class OperationZone extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				audio.getaCClic().play();
-				addNewDepartemnt = new AddNewDepartemnt(main,"Add a new Departement for your hospital",true, hospital);
-				addNewDepartemnt.addDepartemnt(main,"Add a new Departement for your hospital",true, hospital);
+				addNewDepartemnt = new AddNewDepartemnt(main,"Add a new Department for your hospital",true, hospital);
+				addNewDepartemnt.addDepartemnt(main,"Add a new Department for your hospital",true, hospital);
 			}
 		});
 		
@@ -118,7 +118,7 @@ public class OperationZone extends JPanel {
 						}
 					}
 				}else{
-					JOptionPane.showMessageDialog(main, "You Can not enlarge your hospital\n You dont have enoght money", "Message Space",JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(main, "You Can not enlarge your hospital\n You dont have enough money", "Message Space",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});

@@ -5,7 +5,6 @@ import graphics.MainFrame;
 /**
  * The Main class (Lunch the Game Here)
  * Date : 20/04/2021
- * @author Ghezil.A
  *
  */
 public class Main {

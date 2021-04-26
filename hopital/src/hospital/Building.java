@@ -12,7 +12,6 @@ import config.GameConfiguration;
 
 /**
  * Date : 04/02/2021
- * @author Ghezil.A
  *@version 1.0
  */
 public class Building {

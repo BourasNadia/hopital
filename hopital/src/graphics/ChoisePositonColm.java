@@ -58,14 +58,10 @@ public class ChoisePositonColm extends JDialog {
 		instance.setPreferredSize(SizeDepartemntShop);
 		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
 		
-		JLabel label = new JLabel("Select a position where you want to put you're departement in");
+		JLabel label = new JLabel("Select the column position of your department");
 		label.setFont(font);
 		instance.add(label);
 		
-		
-		JLabel label2 = new JLabel("Column");
-		label2.setFont(font);
-		instance.add(label2);
 		List<String> choicesArrayColm =new ArrayList<String>();
 		String x = addNewDepartemnt.getXi();
 		int line= Integer.parseInt(x);

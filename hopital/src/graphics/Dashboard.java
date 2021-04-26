@@ -1,5 +1,6 @@
 package graphics;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 
 
@@ -8,12 +9,17 @@ import java.awt.Graphics;
 
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.List;
 
+import graphics.chart.ChartManager;
 import hospital.Audio;
+import hospital.Building;
 import hospital.Hospital;
+import hospital.Operation;
 import hospital.elements.Cardiology;
 import hospital.elements.Department;
 import hospital.elements.Emergency;
@@ -29,7 +35,12 @@ import hospital.map.Map;
 import hospital.timer.Timer;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
 
 import config.GameConfiguration;
 
@@ -46,6 +57,7 @@ public class Dashboard extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Map map;
 	private Hospital hospital;
+	private ImageIcon icon = new ImageIcon("./src/config/images/graphique.jpg"); 
 	/**
 	 * this is a object of the money class witch have the same structure as CREDIT 
 	 * just for drawing Coins of Money when we win some
@@ -62,7 +74,42 @@ public class Dashboard extends JPanel {
 	public Dashboard(Map map,Hospital hospital){
 		this.map=map;
 		this.hospital=hospital;
+		Dashboard dashboard = this;
+		Button btnInfo = new Button("INFO");
+		Dimension d1 = new Dimension(10,20);
+		btnInfo.setSize(d1);
+		btnInfo.setLocation(100, 100);
+		btnInfo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String lesTextes[]={ "Department and there level", "Information Doctors Grade"}; 
+				int retour = JOptionPane.showOptionDialog(dashboard, "Welcom in Your Graphical Information\n"
+						+ "Information About", "Session",  JOptionPane.DEFAULT_OPTION,  JOptionPane.CLOSED_OPTION, 
+						 icon,
+						lesTextes,lesTextes[0]);
+				if( retour!=JOptionPane.CLOSED_OPTION){
+							if( retour == 0){
+								audio.getaCClic().play();
+								ChartManager chartManager = new ChartManager(hospital); 
+								JFreeChart chart = chartManager.getTypeLevelDep();
+								ChartFrame frame = new ChartFrame("INFORMATION LEVEL DEPARTMENT ", chart);
+								frame.pack();
+								frame.setVisible(true);
+							}else if(retour==1){
+								audio.getaCClic().play();
+								ChartManager chartManager = new ChartManager(hospital); 
+								JFreeChart chart = chartManager.getTypeCountBar(hospital);
+								ChartFrame frame = new ChartFrame("INFORMATION GRADE OF DOCTORS ", chart);
+								frame.pack();
+								frame.setVisible(true);
+							}
+					}
+			}
+		});
+		this.add(btnInfo);
 	}
+		
 	
 	/* (non-Javadoc)
 	 * here we paint our department in the playground 
@@ -197,9 +244,11 @@ public class Dashboard extends JPanel {
 		Dashboard instance = this;
 		instance.setBorder(BorderFactory.createLoweredBevelBorder());		
 		element.paint(reception,g);
+		
 
 		
 	}
+	
 	
 	
 }

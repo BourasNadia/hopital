@@ -51,6 +51,7 @@ public class InformationZone extends JPanel implements Runnable{
 	}
 	@Override
 	public void paintComponent(Graphics g) {
+		
 		super.paintComponent(g);
 		Timer timer = hospital.getTime();
 		element.paint(timer, g);

@@ -17,7 +17,7 @@ public class Audio {
 	/**
 	 * The Main Audio Clip
 	 */ 
-	private AudioClip aCHosto = new AudioClip( new File("./src/config/audio/main-sond.mp3").toURI().toString());
+	private AudioClip aCHosto = new AudioClip( new File("./src/config/audio/main-sond.wav").toURI().toString());
 	
 	/**
 	 * outher audio 

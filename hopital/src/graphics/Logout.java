@@ -33,7 +33,7 @@ public class Logout extends JDialog{
 	public void logout() throws FileNotFoundException {
 		Logout instance=this;
 		Operation operation = new Operation(hospital,map,time);
-		int rep = JOptionPane.showConfirmDialog(instance, "Do you want to exit the game ?\n youre session well be saved \n", "Confirm Exit", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+		int rep = JOptionPane.showConfirmDialog(instance, "Do you want to exit the game ?\n Your session well be saved \n", "Confirm Exit", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
 		if (rep==JOptionPane.YES_OPTION){
 			operation.textSaveDepartement("DataDepartement.csv");
 			operation.textSavenInformation("DataInformation.csv");

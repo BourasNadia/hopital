@@ -6,10 +6,7 @@ package config;
  * @author Bouras.N
  *
  */
-/**
- * @author kakif
- *
- */
+
 public class GameConfiguration {
 	/**
 	 * Dashboard dimension
@@ -26,7 +23,7 @@ public class GameConfiguration {
 	/**
 	 *  DEPPARTEMENT dimension
 	 */
-	public static final int DEPPARTEMENT_SHOP_WIDTH = 400;
+	public static final int DEPPARTEMENT_SHOP_WIDTH = 410;
 	public static final int DEPPARTEMENT_SHOP_HEIGHT = 600;
 	
 	/**
@@ -49,7 +46,7 @@ public class GameConfiguration {
 	/**
 	 * Initial Credit value 
 	 */
-	public static final int INIT_CREDIT = 600;
+	public static final int INIT_CREDIT = 6000;
 	
 	/**
 	 * HEIGHT Of each department

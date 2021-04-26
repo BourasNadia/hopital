@@ -6,9 +6,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JDialog;
+
 import hospital.Building;
+import hospital.Equipment;
 import hospital.Hospital;
 import hospital.Operation;
+import hospital.Staffing;
 import hospital.elements.Department;
 import hospital.elements.Neurology;
 import hospital.elements.Reception;
@@ -47,6 +51,8 @@ public class testHospital {
 		assertEquals(500, hospital.getCredit().getValue());
 		assertEquals(27,hospital.getWidth());
 		assertEquals(37, hospital.getHeight());
+		
+		
 	}
 	/**
 	 * test building departement from a .csv file 
@@ -61,9 +67,38 @@ public class testHospital {
 		assertTrue(departements.get(1) instanceof Neurology);
 		assertTrue(departements.get(7) instanceof Surgery);
 	}
+	/**
+	 * For this test we need to confirm the operation manually 
+	 * LevelNeurology : the level of Neurology department after adding equipments
+	 */
 	@Test
 	public void AddingEquipment(){
+		Equipment equipment = new Equipment();
+		JDialog dialog = new JDialog();
+		dialog.setVisible(false);
+		equipment.addEquipment(hospital,"neurology","Level 3",dialog);
+		equipment.addEquipment(hospital,"Surgery","Level 2",dialog);
+		equipment.getValidPosColm((ArrayList<Department>)hospital.getDepartements(), hospital, hospital.getNeurology(), 17);
+		List<String> ValidColm = (ArrayList<String>) equipment.getChoicesArrayColm();
+		int NumberofvalidColm = ValidColm.size();
+		assertEquals(25, NumberofvalidColm);
+		int LevelNeurology = hospital.getNeurology().getLevel();
+		int LevelSurgery =  hospital.getSurgery().getLevel();
+		assertEquals(3,LevelNeurology);
+		assertEquals(1,LevelSurgery);
 		
+	}
+	@Test
+	public void AddingStaff(){
+		Staffing staffing = new Staffing();
+		JDialog dialog = new JDialog();
+		dialog.setVisible(false);
+		staffing.addStaff(hospital, "neurology", "Doctor", "Grade 2", dialog);
+		staffing.addStaff(hospital, "Radiology", "Doctor", "Grade 3", dialog);
+		int GradeDrNeurology = hospital.getNeurology().getDrGrade();
+		int GradeDrRadiology =  hospital.getRadiology().getDrGrade();
+		assertEquals(2,GradeDrNeurology);
+		assertEquals(3,GradeDrRadiology);
 	}
 
 }

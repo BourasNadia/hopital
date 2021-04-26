@@ -54,13 +54,10 @@ public class ChoisePositon extends JDialog {
 		instance.setPreferredSize(SizeDepartemntShop);
 		ArrayList<Department>departements = (ArrayList<Department>) hospital.getDepartements();
 		
-		JLabel label = new JLabel("Select a position where you want to put you're departement in");
+		JLabel label = new JLabel("Select the line position of your department ");
 		label.setFont(font);
 		instance.add(label);
 		
-		JLabel label1 = new JLabel("Line");
-		label1.setFont(font);
-		instance.add(label1);
 		
 		List<String> choicesArrayLine =new ArrayList<String>();
 		equipment.getValidPosLine(departements, hospital,department);

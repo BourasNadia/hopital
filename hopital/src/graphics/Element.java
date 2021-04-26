@@ -29,7 +29,6 @@ import config.GameConfiguration;
 /**
  * Class for paint the all Element of our hospital
  * Map - Departments - Money - Credit - Patients(Homme)
- * @author Ghezil.A
  *
  */
 public class Element {
